@@ -2,7 +2,6 @@
 @Include=#@#Variables/mainvariables.inc
 ContextTitle2="Edit base now playing"
 ContextAction2=["#CURRENTPATH#nowplaying.inc"]
-Group=RelativeToScreenWidth | AllSkins
 
 [Variables]
 icon=[\xf001]

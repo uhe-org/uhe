@@ -1,6 +1,5 @@
 [Rainmeter]
 @Include=#@#Variables/mainvariables.inc
-Group=RelativeToScreenWidth | AllSkins
 
 [Variables]
 Win10TaskbarHeight=40
