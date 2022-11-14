@@ -11,7 +11,7 @@ Hidden=1
 [meterTimestampTitle]
 Meter=String
 Group=TextGroup | TimestampGroup
-Text=Timestamp Generator
+Text=Discord Timestamp Generator
 AntiAlias=1
 Padding=#PaddingSize#
 Y=r
