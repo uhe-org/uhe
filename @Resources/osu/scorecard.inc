@@ -294,14 +294,6 @@ Measure=WebParser
 URL=[measureData]
 StringIndex=14
 
-[measureGame]
-Measure=Plugin
-Plugin=Process
-ProcessName=osu!.exe
-IfCondition=measureGame = 1
-IfTrueAction=[!Show][!EnableMeasure measureData]
-IfFalseAction=[!Hide][!DisableMeasure measureData]
-
 [meterImage]
 Meter=Image
 MeasureName=measureImage
