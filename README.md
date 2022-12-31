@@ -8,4 +8,8 @@ This project started in July 2019 and has steadily gone through many revisions b
 
 *Note: This suite contains [osu!](https://osu.ppy.sh)-related skins out of the box.*
 
+![Desktop](@Resources/Images/desktop.png)
+*Wallpaper source (Wallpaper Engine): [Solar System](https://steamcommunity.com/sharedfiles/filedetails/?id=793602574)*\
+*The tasks skin source code is in https://github.com/Joehuu/uhe-todo-list.*
+
 Licensed under the MIT License.
