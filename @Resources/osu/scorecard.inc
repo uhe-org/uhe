@@ -494,6 +494,19 @@ DynamicVariables=1
 Group=OpaqueBackgroundGroup | DownArrowGroup
 Y=R
 Hidden=1
+MouseOverAction=[!SetOption meterDownArrowHover Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterDownArrowHover][!Redraw]
+MouseLeaveAction=[!SetOption meterDownArrowHover Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterDownArrowHover][!Redraw]
+ToolTipText=Expand extended stats.
+
+[meterDownArrowHover]
+Meter=Shape
+Shape=Rectangle 0,0,#Width#,(20 + #SidePadding# * 2), #CornerRadius# | Extend Highlight | StrokeWidth 0
+;add placeholder option to hide errors
+Highlight=Fill Color 0,0,0,0
+DynamicVariables=1
+Group=DownArrowGroup
+Y=r
+Hidden=1
 
 [meterDownArrow]
 Meter=String
@@ -501,9 +514,6 @@ MeterStyle=ArrowExpandCollapseStyle
 Text=[\xf078]
 LeftMouseUpAction=#VerticalExpandCommand#[!SetVariable UserCollapsed 0]
 Group=TextGroup | DownArrowGroup
-MouseOverAction=[!SetOption meterDownArrow SolidColor #LightHighlight#,#NoGradientTransparency#][!UpdateMeter meterDownArrow][!Redraw]
-MouseLeaveAction=[!SetOption meterDownArrow SolidColor 0,0,0,0][!UpdateMeter meterDownArrow][!Redraw]
-ToolTipText=Expand extended stats.
 Hidden=1
 
 [meterUpArrowBackground]
@@ -515,6 +525,19 @@ DynamicVariables=1
 Group=BackgroundGroup | UpArrowGroup
 Y=R
 Hidden=1
+MouseOverAction=[!SetOption meterUpArrowHover Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterUpArrowHover][!Redraw]
+MouseLeaveAction=[!SetOption meterUpArrowHover Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterUpArrowHover][!Redraw]
+ToolTipText=Collapse extended stats.
+
+[meterUpArrowHover]
+Meter=Shape
+Shape=Rectangle 0,0,#Width#,(20 + #SidePadding# * 2), #CornerRadius# | Extend Highlight | StrokeWidth 0
+;add placeholder option to hide errors
+Highlight=Fill Color 0,0,0,0
+DynamicVariables=1
+Group=UpArrowGroup
+Y=r
+Hidden=1
 
 [meterUpArrow]
 Meter=String
@@ -523,9 +546,6 @@ Text=[\xf077]
 ;LeftMouseUpAction=[!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!HideMeterGroup UpArrowGroup][!ShowMeterGroup DownArrowGroup][!SetVariable UserCollapsed 1][!Redraw]
 LeftMouseUpAction=[!HideMeterGroup UpArrowGroup][!ShowMeterGroup DownArrowGroup]#VerticalCollapseCommand#[!SetVariable UserCollapsed 1]
 Group=TextGroup | UpArrowGroup
-MouseOverAction=[!SetOption meterUpArrow SolidColor #LightHighlight#,#NoGradientTransparency#][!UpdateMeter meterUpArrow][!Redraw]
-MouseLeaveAction=[!SetOption meterUpArrow SolidColor 0,0,0,0][!UpdateMeter meterUpArrow][!Redraw]
-ToolTipText=Collapse extended stats.
 Hidden=1
 
 [meterToggleMute]
