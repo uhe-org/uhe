@@ -448,6 +448,9 @@ Hidden=1
 [meterDropdownBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterDropdown:W],[meterDropdown:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape2=Rectangle 0,-#CornerRadius#,[meterDropdown:W],[meterDropdown:H],0
+Shape3=Rectangle 0,(-#CornerRadius# * 2),[meterDropdown:W],(#CornerRadius# * 2),#CornerRadius#
+Shape4=Combine Shape | Union Shape2 | Exclude Shape3
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
@@ -482,6 +485,9 @@ Hidden=1
 [meterDownArrowBackground]
 Meter=Shape
 Shape=Rectangle 0,0,#Width#,(20 + #SidePadding# * 2), #CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape2=Rectangle 0,-#CornerRadius#,#Width#,(20 + #SidePadding# * 2),0
+Shape3=Rectangle 0,(-#CornerRadius# * 2),#Width#,(#CornerRadius# * 2),#CornerRadius#
+Shape4=Combine Shape | Union Shape2 | Exclude Shape3
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
