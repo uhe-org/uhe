@@ -6,7 +6,6 @@ DynamicWindowSize=1
 ContextTitle="Edit main variables"
 ContextAction=["#@#Variables/mainvariables.inc"]
 @Include=uservariables.inc
-@Include2=apivariables.inc
 @Include3=formattingvariables.inc
 @Include4=easingvariables.inc
 Group=AllSkins

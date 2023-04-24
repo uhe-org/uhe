@@ -83,7 +83,7 @@ Name=Microsoft Zira Desktop
 
 [measureData]
 Measure=WebParser
-Header=Authorization: Bearer #OsuToken#
+Header=Authorization: Bearer %UheOsuToken%
 UpdateRate=5
 RegExp=(?siU)#AccuracyRegExp##BestIDRegExp##CreatedAtRegExp##MaxComboRegExp##ModsRegExp##PPRegExp##RankRegExp##ScoreRegExp##Count100RegExp##Count300RegExp##Count50RegExp##CountMissRegExp#.*"beatmapset_id":(.*),.*"id":(.*),.*"version":"(.*)",.*"title":"(.*)",
 FinishAction=#BaseFinishAction#

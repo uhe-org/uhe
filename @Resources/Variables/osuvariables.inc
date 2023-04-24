@@ -11,9 +11,17 @@ Mode=osu
 [measureToken]
 Measure=Plugin
 Plugin=RunCommand
-Parameter=curl -s -d "client_id=#OsuClientID#&client_secret=#OsuClientSecret#&grant_type=client_credentials&scope=public" -X POST "https://osu.ppy.sh/oauth/token"
+Parameter=curl -s -d "client_id=%UheOsuClientID%&client_secret=%UheOsuClientSecret%&grant_type=client_credentials&scope=public" -X POST "https://osu.ppy.sh/oauth/token"
 UpdateDivider=-1
 OutputType=ANSI
 RegExpSubstitute=1
 Substitute='.*"access_token":"(.+)"}':"\1"
-FinishAction=[!WriteKeyValue Variables OsuToken [measureToken] "#@#Variables/apivariables.inc"][!RefreshGroup osu]
+FinishAction=[!SetVariable generatedToken [measureToken]][!UpdateMeasure measureSetToken][!CommandMeasure measureSetToken Run]
+
+[measureSetToken]
+Measure=Plugin
+Plugin=RunCommand
+DynamicVariables=1
+Parameter=setx UheOsuToken #generatedToken#
+FinishAction=[!Quit]
+OutputType=UTF8
