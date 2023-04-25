@@ -16,6 +16,8 @@ ShowExtendedStatsOnStart=1
 OnConnectErrorTriggered=0
 OnRegExpErrorTriggered=0
 UserCollapsed=0
+volume-xmark=[\xf6a9]
+volume-high=[xf028]
 BaseFinishAction=[!ShowMeterGroup Content][!EnableMeasureGroup TimeMeasures][!HideMeterGroup LoadingGroup][!EnableMeasure measureOnConnectError][!UpdateMeasure measureOnConnectError][!DisableMeasure measureOnConnectError][!SetVariable OnRegExpErrorTriggered 0]
 BaseOnConnectErrorAction=[!HideMeterGroup Content][!DisableMeasureGroup TimeMeasures][!HideMeterGroup UpArrowGroup][!HideMeterGroup DownArrowGroup][!ShowMeterGroup LoadingGroup][!SetOption meterLoading Text "No internet connection..."][!UpdateMeter meterLoading][!SetVariable OnConnectErrorTriggered 1][!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!Redraw]
 BaseOnRegExpErrorAction=[!HideMeterGroup Content][!DisableMeasureGroup TimeMeasures][!HideMeterGroup UpArrowGroup][!HideMeterGroup DownArrowGroup][!ShowMeterGroup LoadingGroup][!SetOption meterLoading Text "No recent score..."][!UpdateMeter meterLoading][!HideMeter meterLoadingSpinner][!HideMeter meterSpinnerBackground][!SetVariable OnRegExpErrorTriggered 1][!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!Redraw]
@@ -36,7 +38,7 @@ PPRegExp=.*"pp":(.*),
 [measureSpeech]
 Measure=Calc
 Disabled=1
-IfCondition=measureGame = 1
+IfCondition=measureMuted = 0
 IfTrueAction=#Say#
 
 [measureOsuFile]
@@ -293,6 +295,14 @@ DownloadFile=cover.jpg
 Measure=WebParser
 URL=[measureData]
 StringIndex=14
+
+[measureMuted]
+Measure=Calc
+Formula=#Muted#
+IfCondition=measureMuted = 0
+IfTrueAction=[!SetVariable ToggleMuted 1][!SetOption meterToggleMute Text volume-high][!UpdateMeter meterToggleMute][!Redraw]
+IfFalseAction=[!SetVariable ToggleMuted 0][!CommandMeasure SpeechHost ""][!SetOption meterToggleMute Text volume-xmark][!UpdateMeter meterToggleMute][!Redraw]
+DynamicVariables=1
 
 [meterImage]
 Meter=Image
@@ -551,7 +561,6 @@ Hidden=1
 [meterToggleMute]
 Meter=String
 Group=TextGroup
-Text=[\xf028]
 FontFace=#IconFace#
 DynamicVariables=1
 X=([meterData:X] + [meterData:W])
@@ -562,4 +571,4 @@ FontSize=16
 AntiAlias=1
 MouseOverAction=[!SetOption meterToggleMute SolidColor #LightHighlight#,#NoGradientTransparency#][!UpdateMeter meterToggleMute][!Redraw]
 MouseLeaveAction=[!SetOption meterToggleMute SolidColor 0,0,0,0][!UpdateMeter meterToggleMute][!Redraw]
-LeftMouseUpAction=[!EnableMeasure measureSpeech][!UpdateMeasure measureSpeech][!DisableMeasure measureSpeech]
+LeftMouseUpAction=[!WriteKeyValue Variables Muted #ToggleMuted#][!SetVariable Muted #ToggleMuted#][!UpdateMeasure measureMuted]
