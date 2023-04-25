@@ -14,11 +14,14 @@ This project started in July 2019 and has steadily gone through many revisions b
 
 ## Dependencies
 
-Some skins rely on external plugins / apps. The plugins are packaged in the `.rmskin`.
+Some skins rely on external plugins / software. The plugins are packaged in the `.rmskin`.
 
 - CustomTaskbar: TranslucentTaskbar ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=24879)) ([DeviantArt](https://www.deviantart.com/arkenthera/art/TranslucentTaskbar-1-2-656402039)) ([GitHub Gist](https://gist.github.com/0x61726b/7a807e04ee8f1d95425f710944667508)) / [TranslucentTB (app)](https://github.com/TranslucentTB/TranslucentTB) (for hiding the Windows taskbar)
     - Note that recent updates of Windows 11 broke the translucent implementations of both of these.
-- osu! scorecards (Best/Recent): Speech ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=18&t=31161&p=158239)) ([GitHub Repo](https://github.com/jsmorley/PluginSpeech))
+- osu! scorecards (Best/Recent)
+    - Speech ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=18&t=31161&p=158239)) ([GitHub Repo](https://github.com/jsmorley/PluginSpeech))
+    - [osu-tools (CLI)](https://github.com/ppy/osu-tools)
+        - needs to be in Documents/GitHub
 - KeyCounter: HotKey ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=18849)) ([GitHub Repo](https://github.com/brianferguson/HotKey.dll))
 - NowPlaying (Web): WebNowPlaying ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=127&t=26619)) ([GitHub Repo](https://github.com/keifufu/WebNowPlaying-Redux-Rainmeter))
 
