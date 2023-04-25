@@ -317,7 +317,7 @@ Container=meterImageContainer
 
 [meterImageContainer]
 Meter=Shape
-Shape=Rectangle 0,0,[meterLabel:H],[meterLabel:H],#CornerRadius#
+Shape=Rectangle 0,0,[meterLabel:H],[meterLabel:H],#CornerRadius# | StrokeWidth 0
 DynamicVariables=1
 X=(#Width# - [meterLabel:H])
 
@@ -580,7 +580,7 @@ OnUpdateAction=[!UpdateMeter meterToggleMuteContainer]
 
 [meterToggleMuteContainer]
 Meter=Shape
-Shape=Rectangle 0,0,[meterToggleMute:W],[meterToggleMute:H],#CornerRadius#
+Shape=Rectangle 0,0,[meterToggleMute:W],[meterToggleMute:H],#CornerRadius# | StrokeWidth 0
 DynamicVariables=1
 X=([meterData:W] - [meterToggleMute:W])
 Y=([meterData:Y] + [meterData:H]- [meterToggleMute:H])
