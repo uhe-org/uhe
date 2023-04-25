@@ -6,6 +6,7 @@ ContextAction2=["#CURRENTPATH#lyricsdisplay.inc"]
 [Variables]
 CurrentY=0
 ScrollDistance=40
+ScrollbarWidth=5
 
 [measureLyrics]
 Measure=NowPlaying
@@ -78,11 +79,19 @@ Container=meterLyricsContainer
 DynamicVariables=1
 Y=#CurrentY#
 
+[meterScrollbarContainer]
+Meter=Shape
+Shape=Rectangle 0,0,(#SidePadding#*2),[meterLyricsContainer:H],#CornerRadius# | StrokeWidth 0
+DynamicVariables=1
+X=(-#SidePadding#*2)R
+Y=r
+
 [meterScrollbar]
 Meter=Image
 DynamicVariables=1
 Y=(([meterLyricsContainer:H]-[meterScrollbar:H]) * (-#CurrentY# / ([meterLyrics:H]-[meterLyricsContainer:H])))r
-W=5
-X=-[meterScrollbar:W]R
+W=#ScrollbarWidth#
+X=([meterScrollbarContainer:W] - #ScrollbarWidth#)
 H=[measureScrollbarHeight]
-SolidColor=175,175,175
+SolidColor=#LightHighlight#
+Container=meterScrollbarContainer
