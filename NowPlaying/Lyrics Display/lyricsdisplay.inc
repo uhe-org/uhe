@@ -13,7 +13,7 @@ PlayerType=Lyrics
 IfMatch=(.+)
 IfMatchAction=[!SetOption meterLyrics Text "%1"]
 ;[!ShowMeter meterLyricsContainer][!ShowMeter meterLyricsContainerVisible]
-IfNotMatchAction=[!SetOption meterLyrics Text "No lyrics..."]
+IfNotMatchAction=[!SetOption meterLyrics Text "No lyrics found..."]
 ;[!HideMeter meterLyricsContainer][!HideMeter meterLyricsContainerVisible]
 OnChangeAction=[!Update][!SetVariable CurrentY 0][!UpdateMeasure measureScrollbarHeight]
 
