@@ -309,11 +309,17 @@ Meter=Image
 MeasureName=measureImage
 DynamicVariables=1
 H=[meterLabel:H]
-X=(#Width# - [meterLabel:H])
 LeftMouseUpAction=osu://b/[measureID]
 RightMouseUpAction=https://osu.ppy.sh/beatmaps/[measureID]
 ToolTipText=Left: In-game beatmap listing#CRLF#Right: Website
 ToolTipTitle=Actions
+Container=meterImageContainer
+
+[meterImageContainer]
+Meter=Shape
+Shape=Rectangle 0,0,[meterLabel:H],[meterLabel:H],#CornerRadius#
+DynamicVariables=1
+X=(#Width# - [meterLabel:H])
 
 [meterLabelBackground]
 Meter=Shape
@@ -563,12 +569,18 @@ Meter=String
 Group=TextGroup
 FontFace=#IconFace#
 DynamicVariables=1
-X=([meterData:X] + [meterData:W])
-Y=([meterData:Y] + [meterData:H])
 Padding=#PaddingSize#
-StringAlign=RightBottom
 FontSize=16
 AntiAlias=1
 MouseOverAction=[!SetOption meterToggleMute SolidColor #LightHighlight#,#NoGradientTransparency#][!UpdateMeter meterToggleMute][!Redraw]
 MouseLeaveAction=[!SetOption meterToggleMute SolidColor 0,0,0,0][!UpdateMeter meterToggleMute][!Redraw]
 LeftMouseUpAction=[!WriteKeyValue Variables Muted #ToggleMuted#][!SetVariable Muted #ToggleMuted#][!UpdateMeasure measureMuted]
+Container=meterToggleMuteContainer
+OnUpdateAction=[!UpdateMeter meterToggleMuteContainer]
+
+[meterToggleMuteContainer]
+Meter=Shape
+Shape=Rectangle 0,0,[meterToggleMute:W],[meterToggleMute:H],#CornerRadius#
+DynamicVariables=1
+X=([meterData:W] - [meterToggleMute:W])
+Y=([meterData:Y] + [meterData:H]- [meterToggleMute:H])
