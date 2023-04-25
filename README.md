@@ -8,9 +8,18 @@ This project started in July 2019 and has steadily gone through many revisions b
 
 *Note: This suite contains [osu!](https://osu.ppy.sh)-related skins out of the box.*
 
-![Desktop](@Resources/Images/desktop.png)
-*Wallpaper source (Wallpaper Engine): [Solar System](https://steamcommunity.com/sharedfiles/filedetails/?id=793602574)*\
-*The tasks skin source code is in https://github.com/Joehuu/uhe-todo-list.*
+| ![Desktop-Light](@Resources/Images/desktop-light.png) | ![Desktop-Dark](@Resources/Images/desktop-dark.png) |
+| --- | --- |
+
+*Wallpaper source (Wallpaper Engine): [Blue Sky \[4K\]
+](https://steamcommunity.com/sharedfiles/filedetails/?id=2944773634)*\
+*Layout: "Uhe osu! Layout"*
+
+## Extensions
+
+There are other skins I've developed in other repositories with the same aesthetic.
+
+- A todo list skin: https://github.com/Joehuu/uhe-todo-list
 
 ## Dependencies
 
