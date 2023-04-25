@@ -20,6 +20,6 @@ Some skins rely on external plugins / apps. The plugins are packaged in the `.rm
     - Note that recent updates of Windows 11 broke the translucent implementations of both of these.
 - osu! scorecards (Best/Recent): Speech ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=18&t=31161&p=158239)) ([GitHub Repo](https://github.com/jsmorley/PluginSpeech))
 - KeyCounter: HotKey ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=18849)) ([GitHub Repo](https://github.com/brianferguson/HotKey.dll))
-- NowPlaying (YouTube): WebNowPlaying ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=127&t=26619)) ([GitHub Repo](https://github.com/keifufu/WebNowPlaying-Redux-Rainmeter))
+- NowPlaying (Web): WebNowPlaying ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=127&t=26619)) ([GitHub Repo](https://github.com/keifufu/WebNowPlaying-Redux-Rainmeter))
 
 Licensed under the MIT License.
