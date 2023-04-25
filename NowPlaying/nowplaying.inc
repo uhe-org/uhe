@@ -38,3 +38,4 @@ InlinePattern=#icon#
 Text=#icon# | %1 - %2
 ClipString=1
 Group=TextGroup
+OnUpdateAction=[!UpdateMeter meterBackground]
