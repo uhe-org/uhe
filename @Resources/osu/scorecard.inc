@@ -455,7 +455,7 @@ FontFace=#FontFace#
 AntiAlias=1
 X=R
 DynamicVariables=1
-H=(10 + #SidePadding#)
+H=(10 + #SidePadding# * 2)
 Y=r
 Padding=5,0,0,0
 Group=TextGroup | Content
@@ -471,7 +471,7 @@ Shape4=Combine Shape | Union Shape2 | Exclude Shape3
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup
-Y=10R
+Y=R
 
 [meterDropdown]
 Meter=String
@@ -584,3 +584,4 @@ Shape=Rectangle 0,0,[meterToggleMute:W],[meterToggleMute:H],#CornerRadius# | Str
 DynamicVariables=1
 X=([meterData:W] - [meterToggleMute:W])
 Y=([meterData:Y] + [meterData:H]- [meterToggleMute:H])
+Group=Content
