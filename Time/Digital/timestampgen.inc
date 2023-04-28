@@ -61,7 +61,7 @@ Y=r
 X=50
 W=100
 StringAlign=Center
-LeftMouseUpAction=[!SetOption measureTimeUnit String "Seconds"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Seconds"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -86,7 +86,7 @@ Y=r
 X=50r
 W=100
 StringAlign=Center
-LeftMouseUpAction=[!SetOption measureTimeUnit String "Minutes"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Minutes"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -111,7 +111,7 @@ Y=r
 X=50r
 W=100
 StringAlign=Center
-LeftMouseUpAction=[!SetOption measureTimeUnit String "Hours"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Hours"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 

@@ -46,6 +46,9 @@ CornerRadius=10
 
 PaddingSize=#SidePadding#,#SidePadding#,#SidePadding#,#SidePadding#
 
+; samples taken from https://mixkit.co/free-sound-effects/interface/
+PlayButtonClick=[Play "#@#Samples/button-click.wav"]
+
 TextTrueAction=[!SetOptionGroup TextGroup FontColor #DarkFontColor#]
 TextTrueAction2=[!SetOptionGroup TextGroup FontColor #LightFontColor#]
 TextTrueAction3=[!SetOptionGroup TextGroup FontColor #LightFontColor#]

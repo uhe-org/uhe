@@ -20,7 +20,7 @@ X=R
 Meter=String
 MeterStyle=styleTestButton
 Text=TestFinishAction
-LeftMouseUpAction=[!CommandMeasure measureData "Execute 1"]
+LeftMouseUpAction=#PlayButtonClick#[!CommandMeasure measureData "Execute 1"]
 
 [meterTestOnConnectErrorActionBackground]
 Meter=Shape
@@ -36,7 +36,7 @@ Y=R
 Meter=String
 MeterStyle=styleTestButton
 Text=TestOnConnectErrorAction
-LeftMouseUpAction=[!CommandMeasure measureData "Execute 2"]
+LeftMouseUpAction=#PlayButtonClick#[!CommandMeasure measureData "Execute 2"]
 
 [meterTestOnRegExpErrorActionBackground]
 Meter=Shape
@@ -52,4 +52,4 @@ Y=R
 Meter=String
 MeterStyle=styleTestButton
 Text=TestOnRegExpErrorAction
-LeftMouseUpAction=[!CommandMeasure measureData "Execute 3"]
+LeftMouseUpAction=#PlayButtonClick#[!CommandMeasure measureData "Execute 3"]

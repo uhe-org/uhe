@@ -44,7 +44,7 @@ Shape=Rectangle 0,0,[meterBackward:W],[meterBackward:H],#CornerRadius# | Fill Li
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 X=0
-LeftMouseUpAction=[!CommandMeasure measurePlayer Previous][!UpdateMeasure measurePlayer][!UpdateMeter meterBackwardBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!CommandMeasure measurePlayer Previous][!UpdateMeasure measurePlayer][!UpdateMeter meterBackwardBackground][!Redraw]
 
 [meterBackwardHover]
 Meter=Shape
@@ -67,7 +67,7 @@ MeterStyle=styleButtonBackground
 Shape=Rectangle 0,0,[meterPlayPause:W],[meterPlayPause:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
-LeftMouseUpAction=[!CommandMeasure measurePlayer PlayPause][!UpdateMeasure measurePlayer][!UpdateMeter meterPlayPauseBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!CommandMeasure measurePlayer PlayPause][!UpdateMeasure measurePlayer][!UpdateMeter meterPlayPauseBackground][!Redraw]
 Group=OpaqueBackgroundGroup
 
 [meterPlayPauseHover]
@@ -91,7 +91,7 @@ MeterStyle=styleButtonBackground
 Shape=Rectangle 0,0,[meterForward:W],[meterForward:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
-LeftMouseUpAction=[!CommandMeasure measurePlayer Next][!UpdateMeasure measurePlayer][!UpdateMeter meterForwardBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!CommandMeasure measurePlayer Next][!UpdateMeasure measurePlayer][!UpdateMeter meterForwardBackground][!Redraw]
 
 [meterForwardHover]
 Meter=Shape

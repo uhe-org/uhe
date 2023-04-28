@@ -309,7 +309,7 @@ Meter=Image
 MeasureName=measureImage
 DynamicVariables=1
 H=[meterLabel:H]
-LeftMouseUpAction=["osu://b/[measureID]"]
+LeftMouseUpAction=#PlayButtonClick#["osu://b/[measureID]"]
 RightMouseUpAction=https://osu.ppy.sh/beatmaps/[measureID]
 ToolTipText=Left: In-game beatmap listing#CRLF#Right: Website
 ToolTipTitle=Actions
@@ -528,7 +528,7 @@ Hidden=1
 Meter=String
 MeterStyle=ArrowExpandCollapseStyle
 Text=[\xf078]
-LeftMouseUpAction=#VerticalExpandCommand#[!SetVariable UserCollapsed 0]
+LeftMouseUpAction=#PlayButtonClick##VerticalExpandCommand#[!SetVariable UserCollapsed 0]
 Group=TextGroup | DownArrowGroup
 Hidden=1
 
@@ -559,8 +559,8 @@ Hidden=1
 Meter=String
 MeterStyle=ArrowExpandCollapseStyle
 Text=[\xf077]
-;LeftMouseUpAction=[!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!HideMeterGroup UpArrowGroup][!ShowMeterGroup DownArrowGroup][!SetVariable UserCollapsed 1][!Redraw]
-LeftMouseUpAction=[!HideMeterGroup UpArrowGroup][!ShowMeterGroup DownArrowGroup]#VerticalCollapseCommand#[!SetVariable UserCollapsed 1]
+;LeftMouseUpAction=#PlayButtonClick#[!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!HideMeterGroup UpArrowGroup][!ShowMeterGroup DownArrowGroup][!SetVariable UserCollapsed 1][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!HideMeterGroup UpArrowGroup][!ShowMeterGroup DownArrowGroup]#VerticalCollapseCommand#[!SetVariable UserCollapsed 1]
 Group=TextGroup | UpArrowGroup
 Hidden=1
 
@@ -574,7 +574,7 @@ FontSize=16
 AntiAlias=1
 MouseOverAction=[!SetOption meterToggleMute SolidColor #LightHighlight#,#NoGradientTransparency#][!UpdateMeter meterToggleMute][!Redraw]
 MouseLeaveAction=[!SetOption meterToggleMute SolidColor 0,0,0,0][!UpdateMeter meterToggleMute][!Redraw]
-LeftMouseUpAction=[!WriteKeyValue Variables Muted #ToggleMuted#][!SetVariable Muted #ToggleMuted#][!UpdateMeasure measureMuted]
+LeftMouseUpAction=#PlayButtonClick#[!WriteKeyValue Variables Muted #ToggleMuted#][!SetVariable Muted #ToggleMuted#][!UpdateMeasure measureMuted]
 Container=meterToggleMuteContainer
 OnUpdateAction=[!UpdateMeter meterToggleMuteContainer]
 
