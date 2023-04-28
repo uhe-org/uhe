@@ -9,29 +9,29 @@ ButtonHeight=50
 Measure=Plugin
 Plugin=HotKey
 HotKey=#Up#
-KeyDownAction=[!SetOption meterUpKeyHover Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterUpKeyHover][!Redraw]
-KeyUpAction=[!SetOption meterUpKeyHover Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterUpKeyHover][!Redraw]
+KeyDownAction=[!SetOption meterUpKeyHighlight Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterUpKeyHighlight][!Redraw]
+KeyUpAction=[!SetOption meterUpKeyHighlight Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterUpKeyHighlight][!Redraw]
 
 [measureLeftKey]
 Measure=Plugin
 Plugin=HotKey
 HotKey=#Left#
-KeyDownAction=[!SetOption meterLeftKeyHover Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterLeftKeyHover][!Redraw]
-KeyUpAction=[!SetOption meterLeftKeyHover Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterLeftKeyHover][!Redraw]
+KeyDownAction=[!SetOption meterLeftKeyHighlight Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterLeftKeyHighlight][!Redraw]
+KeyUpAction=[!SetOption meterLeftKeyHighlight Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterLeftKeyHighlight][!Redraw]
 
 [measureDownKey]
 Measure=Plugin
 Plugin=HotKey
 HotKey=#Down#
-KeyDownAction=[!SetOption meterDownKeyHover Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterDownKeyHover][!Redraw]
-KeyUpAction=[!SetOption meterDownKeyHover Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterDownKeyHover][!Redraw]
+KeyDownAction=[!SetOption meterDownKeyHighlight Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterDownKeyHighlight][!Redraw]
+KeyUpAction=[!SetOption meterDownKeyHighlight Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterDownKeyHighlight][!Redraw]
 
 [measureRightKey]
 Measure=Plugin
 Plugin=HotKey
 HotKey=#Right#
-KeyDownAction=[!SetOption meterRightKeyHover Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterRightKeyHover][!Redraw]
-KeyUpAction=[!SetOption meterRightKeyHover Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterRightKeyHover][!Redraw]
+KeyDownAction=[!SetOption meterRightKeyHighlight Highlight "Fill Color #LightHighlight#,#NoGradientTransparency#"][!UpdateMeter meterRightKeyHighlight][!Redraw]
+KeyUpAction=[!SetOption meterRightKeyHighlight Highlight "Fill Color 0,0,0,0"][!UpdateMeter meterRightKeyHighlight][!Redraw]
 
 [meterUpKeyBackground]
 Meter=Shape
@@ -42,7 +42,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup
 
-[meterUpKeyHover]
+[meterUpKeyHighlight]
 Meter=Shape
 Shape=Rectangle 0,0,#ButtonWidth#,#ButtonHeight#,#CornerRadius# | Extend Highlight | StrokeWidth 0
 ;add placeholder option to hide errors
@@ -72,7 +72,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup
 
-[meterLeftKeyHover]
+[meterLeftKeyHighlight]
 Meter=Shape
 Shape=Rectangle 0,0,#ButtonWidth#,#ButtonHeight#,#CornerRadius# | Extend Highlight | StrokeWidth 0
 ;add placeholder option to hide errors
@@ -104,7 +104,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup
 
-[meterDownKeyHover]
+[meterDownKeyHighlight]
 Meter=Shape
 Shape=Rectangle 0,0,#ButtonWidth#,#ButtonHeight#,#CornerRadius# | Extend Highlight | StrokeWidth 0
 ;add placeholder option to hide errors
@@ -136,7 +136,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup
 
-[meterRightKeyHover]
+[meterRightKeyHighlight]
 Meter=Shape
 Shape=Rectangle 0,0,#ButtonWidth#,#ButtonHeight#,#CornerRadius# | Extend Highlight | StrokeWidth 0
 ;add placeholder option to hide errors
