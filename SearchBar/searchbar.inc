@@ -1,12 +1,6 @@
 [Rainmeter]
 @Include=#@#Variables/mainvariables.inc
 
-[Metadata]
-Author=Joehu
-Version=1.0
-License=MIT License
-Information=Searches stuff on Google.
-
 [Variables]
 icon=[\xf002]
 
@@ -20,7 +14,7 @@ FontSize=14
 FontFace=#FontFace#
 AntiAlias=1
 DefaultValue=type to search
-Command1=["http://www.google.com/search?q=$UserInput$"]
+Command1=["#URL#"]
 Group=TextGroup | TextBoxGroup
 
 [meterMiddleBackground]
