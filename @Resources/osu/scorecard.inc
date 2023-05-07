@@ -9,7 +9,6 @@ Group=osu | osuScore | AllSkins
 
 [Variables]
 Width=400
-DropdownHeight=600
 BeatmapImageWidth=75
 Say=[!CommandMeasure SpeechHost "[measure100] 100s [measureMiss] miss and worth [measurePPSpeech]"]
 ShowExtendedStatsOnStart=1
@@ -75,7 +74,7 @@ Formula=#ShowExtendedStatsOnStart#
 Disabled=1
 DynamicVariables=1
 IfCondition=((measureShowExtendedStatsOnStart = 1) && (#UserCollapsed# = 0) && (#OnConnectErrorTriggered# = 0) && (#OnRegExpErrorTriggered# = 0))
-IfTrueAction=#VerticalExpandCommand#
+IfTrueAction=[!UpdateMeter meterDropdownContent]#VerticalExpandCommand#
 IfFalseAction=[!ShowMeterGroup DownArrowGroup][!SetOption measureMultiplier Formula 0][!UpdateMeasure measureMultiplier][!SetVariable Size 0][!SetOption meterDropdown H 0]
 
 [SpeechHost]
@@ -463,7 +462,7 @@ Hidden=1
 
 [meterDropdownBackground]
 Meter=Shape
-Shape=Rectangle 0,0,[meterDropdown:W],[meterDropdown:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,#Width#,[meterDropdown:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 Shape2=Rectangle 0,-#CornerRadius#,[meterDropdown:W],[meterDropdown:H],0
 Shape3=Rectangle 0,(-#CornerRadius# * 2),[meterDropdown:W],(#CornerRadius# * 2),#CornerRadius#
 Shape4=Combine Shape | Union Shape2 | Exclude Shape3
@@ -474,9 +473,14 @@ Group=OpaqueBackgroundGroup
 Y=R
 
 [meterDropdown]
+Meter=Image
+Y=r
+W=#Width#
+SolidColor=0,0,0
+
+[meterDropdownContent]
 Meter=String
 MeasureName=measureExtendedStats
-Y=r
 FontSize=10
 FontFace=#MonospacedFontFace#
 AntiAlias=1
@@ -484,7 +488,7 @@ ClipString=2
 Padding=#PaddingSize#
 W=(#Width# - (#SidePadding# * 2))
 Group=TextGroup
-Hidden=1
+Container=meterDropdown
 
 [ArrowExpandCollapseStyle]
 AntiAlias=1

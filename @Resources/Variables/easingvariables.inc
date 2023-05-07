@@ -1,5 +1,5 @@
 [Variables]
-DropdownHeight=500
+DropdownHeight=[meterDropdownContent:H]
 RepeatRate=1
 ;for optimization purposes
 ;RepeatRate=16
@@ -7,8 +7,8 @@ RepeatRate=1
 ;RepeatRate=1000
 Duration=20
 
-EaseOutQuint=(#DropdownHeight# - (#SidePadding# * 2) - (((#Duration# - [measureMultiplier]) ** 5)) / ((#Duration# ** 5) / #DropdownHeight#))
-EaseInQuint=(#DropdownHeight# - (#SidePadding# * 2) - (((#Duration# - [measureMultiplier]) ** 5)) / ((#Duration# ** 5) / #DropdownHeight#))
+EaseOutQuint=(#DropdownHeight# - (((#Duration# - [measureMultiplier]) ** 5)) / ((#Duration# ** 5) / #DropdownHeight#))
+EaseInQuint=(#DropdownHeight# - (((#Duration# - [measureMultiplier]) ** 5)) / ((#Duration# ** 5) / #DropdownHeight#))
 
 BaseVerticalExpand=ShowDropdown | Repeat VerticalExpand,#RepeatRate#,#Duration#
 BaseVerticalCollapse=Repeat VerticalCollapse,#RepeatRate#,#Duration# | HideDropdown
