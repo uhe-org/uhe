@@ -166,7 +166,6 @@ Substitute='(.+)':"+\1", '"':"", ",":""
 Measure=WebParser
 URL=[measureData]
 StringIndex=7
-Substitute="F":"D"
 IfMatch=X|S
 IfMatchAction=[!SetOption meterRank FontColor 255,255,0]
 IfMatch2=XH|SH
@@ -180,7 +179,7 @@ IfMatchAction4=[!SetOption meterRank FontColor 194,59,34]
 Measure=String
 DynamicVariables=1
 String=[measureRank]
-Substitute="SSH":"SS", "SH":"S"
+Substitute="XH":"SS", "X":"SS", "SH":"S", "F":"D"
 
 [measureScoreBestID]
 Measure=WebParser
