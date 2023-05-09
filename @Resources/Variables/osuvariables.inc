@@ -23,5 +23,5 @@ Measure=Plugin
 Plugin=RunCommand
 DynamicVariables=1
 Parameter=setx UheOsuToken #generatedToken#
-FinishAction=[!Quit]
+FinishAction=[!ActivateConfig "uhe\Dialogs\Quit"][!SetVariable RequestedSkin "osu! usercard" "uhe\Dialogs\Quit"][!Update "uhe\Dialogs\Quit"]
 OutputType=UTF8
