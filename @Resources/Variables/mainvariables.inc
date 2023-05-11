@@ -49,35 +49,10 @@ PaddingSize=#SidePadding#,#SidePadding#,#SidePadding#,#SidePadding#
 ; samples taken from https://mixkit.co/free-sound-effects/interface/
 PlayButtonClick=[Play "#SKINSPATH#/uhe/@Resources/Samples/button-click.wav"]
 
-TextTrueAction=[!SetOptionGroup TextGroup FontColor #DarkFontColor#]
-TextTrueAction2=[!SetOptionGroup TextGroup FontColor #LightFontColor#]
-TextTrueAction3=[!SetOptionGroup TextGroup FontColor #LightFontColor#]
-TextTrueAction4=[!SetOptionGroup TextGroup FontColor #DarkFontColor#]
-
-ImageTrueAction=[!SetOptionGroup SpriteGroup ImageTint #DarkFontColor#]
-ImageTrueAction2=[!SetOptionGroup SpriteGroup ImageTint #LightFontColor#]
-ImageTrueAction3=[!SetOptionGroup SpriteGroup ImageTint #LightFontColor#]
-ImageTrueAction4=[!SetOptionGroup SpriteGroup ImageTint #DarkFontColor#]
-
-BackgroundTrueAction=[!SetOptionGroup BackgroundGroup Gradient "180 | #DarkBackgroundColor#,#GradientHigh# ; 0.0 | #DarkBackgroundColor#,#GradientLow# ; 1.0"]
-BackgroundTrueAction2=[!SetOptionGroup BackgroundGroup Gradient "180 | #LightBackgroundColor#,#NoGradientTransparency# ; 0.0 | #LightBackgroundColor#,#NoGradientTransparency# ; 1.0"]
-BackgroundTrueAction3=[!SetOptionGroup BackgroundGroup Gradient "180 | #LightBackgroundColor#,#GradientHigh# ; 0.0 | #LightBackgroundColor#,#GradientLow# ; 1.0"]
-BackgroundTrueAction4=[!SetOptionGroup BackgroundGroup Gradient "180 | #DarkBackgroundColor#,#NoGradientTransparency# ; 0.0 | #DarkBackgroundColor#,#NoGradientTransparency# ; 1.0"]
-
-OpaqueBackgroundTrueAction=[!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #DarkerBackgroundColor#,#GradientHigh# ; 0.0 | #DarkerBackgroundColor#,#GradientLow# ; 1.0"]
-OpaqueBackgroundTrueAction2=[!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #LighterBackgroundColor#,#NoGradientTransparency# ; 0.0 | #LighterBackgroundColor#,#NoGradientTransparency# ; 1.0"]
-OpaqueBackgroundTrueAction3=[!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #LighterBackgroundColor#,#GradientHigh# ; 0.0 | #LighterBackgroundColor#,#GradientLow# ; 1.0"]
-OpaqueBackgroundTrueAction4=[!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 0.0 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 1.0"]
-
-TextBoxTrueAction=[!SetOptionGroup TextBoxGroup SolidColor #DarkBackgroundColor#]
-TextBoxTrueAction2=[!SetOptionGroup TextBoxGroup SolidColor #LightBackgroundColor#]
-TextBoxTrueAction3=[!SetOptionGroup TextBoxGroup SolidColor #LightBackgroundColor#]
-TextBoxTrueAction4=[!SetOptionGroup TextBoxGroup SolidColor #DarkBackgroundColor#]
-
-TrueAction=#TextTrueAction##BackgroundTrueAction##OpaqueBackgroundTrueAction##TextBoxTrueAction##ImageTrueAction#
-TrueAction2=#TextTrueAction2##BackgroundTrueAction2##OpaqueBackgroundTrueAction2##TextBoxTrueAction2##ImageTrueAction2#
-TrueAction3=#TextTrueAction3##BackgroundTrueAction3##OpaqueBackgroundTrueAction3##TextBoxTrueAction3##ImageTrueAction3#
-TrueAction4=#TextTrueAction4##BackgroundTrueAction4##OpaqueBackgroundTrueAction4##TextBoxTrueAction4##ImageTrueAction4#
+SetDarkModeGradient=[!SetOptionGroup TextGroup FontColor #DarkFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #DarkBackgroundColor#,#GradientHigh# ; 0.0 | #DarkBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #DarkerBackgroundColor#,#GradientHigh# ; 0.0 | #DarkerBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #DarkBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #DarkFontColor#]
+SetLightMode=[!SetOptionGroup TextGroup FontColor #LightFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #LightBackgroundColor#,#NoGradientTransparency# ; 0.0 | #LightBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #LighterBackgroundColor#,#NoGradientTransparency# ; 0.0 | #LighterBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #LightBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #LightFontColor#]
+SetLightModeGradient=[!SetOptionGroup TextGroup FontColor #LightFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #LightBackgroundColor#,#GradientHigh# ; 0.0 | #LightBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #LighterBackgroundColor#,#GradientHigh# ; 0.0 | #LighterBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #LightBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #LightFontColor#]
+SetDarkMode=[!SetOptionGroup TextGroup FontColor #DarkFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #DarkBackgroundColor#,#NoGradientTransparency# ; 0.0 | #DarkBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 0.0 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #DarkBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #DarkFontColor#]
 
 [measureGradient]
 Measure=Calc
@@ -93,10 +68,10 @@ IfCondition=(measureLightMode = 0) && (measureGradient = 1)
 IfCondition2=(measureLightMode = 1) && (measureGradient = 0)
 IfCondition3=(measureLightMode = 1) && (measureGradient = 1)
 IfCondition4=(measureLightMode = 0) && (measureGradient = 0)
-IfTrueAction=#TrueAction#
-IfTrueAction2=#TrueAction2#
-IfTrueAction3=#TrueAction3#
-IfTrueAction4=#TrueAction4#
+IfTrueAction=#SetDarkModeGradient#
+IfTrueAction2=#SetLightMode#
+IfTrueAction3=#SetLightModeGradient#
+IfTrueAction4=#SetDarkMode#
 
 [measureDocsFolder]
 Measure=Registry
