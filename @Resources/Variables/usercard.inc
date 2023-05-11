@@ -8,7 +8,7 @@ Width=400
 InfoWidth=300
 BaseFinishAction=[!ShowMeter meterCard][!UpdateMeter meterCardBackground][!Redraw]
 BaseOnRegExpErrorAction=[!Redraw]
-Minimal=1
+Minimal=0
 
 [measureMinimal]
 Measure=Calc
