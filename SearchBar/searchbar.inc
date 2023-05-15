@@ -22,6 +22,16 @@ Group=TextGroup | TextBoxGroup
 [meterMiddleBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterMiddle:W],[meterMiddle:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape2=Rectangle (20 + (#SidePadding# * 2)),0,([meterMiddle:W] - (20 + (#SidePadding# * 2))),[meterMiddle:H],#CornerRadius# | StrokeWidth 0
+;add placeholder option to hide errors
+Shape3=Combine Shape | Exclude Shape2
+Gradient=0 | 0,0,0,0 ; 0.0
+DynamicVariables=1
+Group=BackgroundGroup
+
+[meterMiddleBackground2]
+Meter=Shape
+Shape=Rectangle (20 + (#SidePadding# * 2)),0,([meterMiddle:W] - (20 + (#SidePadding# * 2))),[meterMiddle:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
@@ -29,11 +39,10 @@ Group=OpaqueBackgroundGroup
 
 [meterMiddleHover]
 Meter=Shape
-Shape=Rectangle 0,0,([meterMiddle:W] - (20 + (#SidePadding# * 2))),[meterMiddle:H],#CornerRadius# | Extend Highlight | StrokeWidth 0
+Shape=Rectangle (20 + (#SidePadding# * 2)),0,([meterMiddle:W] - (20 + (#SidePadding# * 2))),[meterMiddle:H],#CornerRadius# | Extend Highlight | StrokeWidth 0
 ;add placeholder option to hide errors
 Highlight=Fill Color 0,0,0,0
 DynamicVariables=1
-X=(20 + (#SidePadding# * 2))
 
 [meterMiddle]
 Meter=String
