@@ -1,5 +1,7 @@
 [Rainmeter]
 @Include=#@#Variables/mainvariables.inc
+ContextTitle2="Edit base search bar"
+ContextAction2=["#CURRENTPATH#searchbar.inc"]
 
 [Variables]
 icon=[\xf002]
