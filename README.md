@@ -41,4 +41,6 @@ Some skins rely on external plugins / software. All Rainmeter plugins listed sho
 - NowPlaying (Web)
     - WebNowPlaying ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=127&t=26619)) ([GitHub Repo](https://github.com/keifufu/WebNowPlaying-Redux-Rainmeter))
 
+## License
+
 Licensed under the MIT License.
