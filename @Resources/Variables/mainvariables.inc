@@ -11,6 +11,8 @@ ContextAction=["#@#Variables/mainvariables.inc"]
 Group=AllSkins
 
 [Variables]
+CurrentVersion=v1.1.0
+
 FontFace=Roboto Condensed
 DisplayFont=Bebas Neue
 MonospacedFontFace=Ubuntu Mono
