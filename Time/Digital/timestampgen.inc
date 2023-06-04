@@ -1,3 +1,53 @@
+[measureWindowsTime]
+Measure=Time
+TimeZone=0
+DaylightSavingTime=0
+
+[measureUnixTimeStart]
+Measure=Time
+TimeStamp=1970/01/01 00:00:00
+TimeStampFormat=%Y/%m/%d %H:%M:%S
+UpdateDivider=-1
+
+[measureUnixTime]
+Measure=Calc
+Formula=MeasureWindowsTime-MeasureUnixTimeStart
+
+[measureOffset]
+Measure=Calc
+UpdateDivider=-1
+
+[measureTimeTarget]
+Measure=Calc
+Formula=MeasureUnixTime+MeasureOffset
+
+[measureInput]
+Measure=Plugin
+Plugin=InputText
+W=[meterTextBoxBackground:W]
+H=[meterTextBoxBackground:H]
+FontSize=20
+FontFace=#FontFace#
+AntiAlias=1
+InputNumber=1
+InputLimit=6
+X=[meterTextBoxBackground:X]
+Y=[meterTextBoxBackground:Y]
+Command1=[!SetOption MeasureOffset Formula $UserInput$][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:R>]
+Command2=[!SetOption MeasureOffset Formula $UserInput$*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:R>]
+Command3=[!SetOption MeasureOffset Formula $UserInput$*60*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:R>]
+Group=TextGroup | TextBoxGroup
+
+[measureTimeUnit]
+Measure=String
+String=Minutes
+IfMatch=Seconds
+IfMatchAction=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 1"]"""][!UpdateMeter meterTextBoxBackground]
+IfMatch2=Minutes
+IfMatchAction2=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 2"]"""][!UpdateMeter meterTextBoxBackground]
+IfMatch3=Hours
+IfMatchAction3=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 3"]"""][!UpdateMeter meterTextBoxBackground]
+
 [meterTimestampTitleBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterTimestampTitle:W],[meterTimestampTitle:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
