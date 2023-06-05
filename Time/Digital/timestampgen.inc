@@ -474,13 +474,25 @@ X=r
 Hidden=1
 FontFace=#FontFace#
 
+[meterStyleDisplayBackground]
+Meter=Shape
+Shape=Rectangle 0,0,[meterStyleDisplay:W],[meterStyleDisplay:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+;add placeholder option to hide errors
+Gradient=0 | 0,0,0,0 ; 0.0
+DynamicVariables=1
+Group=BackgroundGroup | TimestampGroup
+Y=#SidePadding#R
+X=[meterStyleDisplay:X]
+Hidden=1
+
 [meterStyleDisplay]
 Meter=String
 MeasureName=measureStyleDisplay
-Y=R
+Y=r
 Group=TextGroup | TimestampGroup
 Hidden=1
 AntiAlias=1
 StringAlign=Center
-X=150
+X=(#Width# / 2)
 Padding=#PaddingSize#
+OnUpdateAction=[!UpdateMeter meterStyleDisplayBackground]
