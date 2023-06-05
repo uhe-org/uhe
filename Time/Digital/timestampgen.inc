@@ -352,7 +352,7 @@ Hidden=1
 [meterTimeUnitTitle]
 Meter=String
 Group=TextGroup | TimestampGroup
-Text=Unit of Time
+Text=Add time in:
 AntiAlias=1
 Padding=#PaddingSize#
 Y=r
