@@ -349,7 +349,7 @@ Shape=Rectangle 0,0,[meterTimeUnitTitle:W],[meterTimeUnitTitle:H],#CornerRadius#
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
-Y=R
+Y=#SidePadding#R
 Hidden=1
 
 [meterTimeUnitTitle]
