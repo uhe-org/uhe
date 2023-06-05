@@ -1,5 +1,6 @@
 [Variables]
 CurrentStyle=f
+Width=300
 
 [measureStyle]
 Measure=String
@@ -121,7 +122,7 @@ Text=Discord Timestamp Generator
 AntiAlias=1
 Padding=#PaddingSize#
 Y=r
-W=280
+W=(#Width# - #SidePadding# * 2)
 Hidden=1
 FontSize=18
 FontFace=#DisplayFont#
@@ -143,7 +144,7 @@ Text=Style
 AntiAlias=1
 Padding=#PaddingSize#
 Y=r
-W=280
+W=(#Width# - #SidePadding# * 2)
 Hidden=1
 FontFace=#FontFace#
 
@@ -164,8 +165,8 @@ Text=t
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(300 / 14)
-W=(300 / 7)
+X=(#Width# / 14)
+W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
@@ -180,7 +181,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
 Y=r
-X=(300 / 14)r
+X=(#Width# / 14)r
 Hidden=1
 
 [meterLongTimeButton]
@@ -190,8 +191,8 @@ Text=T
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(300 / 14)r
-W=(300 / 7)
+X=(#Width# / 14)r
+W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
@@ -206,7 +207,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup | TimestampGroup
 Y=r
-X=(300 / 14)r
+X=(#Width# / 14)r
 Hidden=1
 
 [meterShortDateButton]
@@ -216,8 +217,8 @@ Text=d
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(300 / 14)r
-W=(300 / 7)
+X=(#Width# / 14)r
+W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
@@ -232,7 +233,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
 Y=r
-X=(300 / 14)r
+X=(#Width# / 14)r
 Hidden=1
 
 [meterLongDateButton]
@@ -242,8 +243,8 @@ Text=D
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(300 / 14)r
-W=(300 / 7)
+X=(#Width# / 14)r
+W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
@@ -258,7 +259,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup | TimestampGroup
 Y=r
-X=(300 / 14)r
+X=(#Width# / 14)r
 Hidden=1
 
 [meterShortDateTimeButton]
@@ -268,8 +269,8 @@ Text=f
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(300 / 14)r
-W=(300 / 7)
+X=(#Width# / 14)r
+W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
@@ -284,7 +285,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
 Y=r
-X=(300 / 14)r
+X=(#Width# / 14)r
 Hidden=1
 
 [meterLongDateTimeButton]
@@ -294,8 +295,8 @@ Text=F
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(300 / 14)r
-W=(300 / 7)
+X=(#Width# / 14)r
+W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
@@ -310,7 +311,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup | TimestampGroup
 Y=r
-X=(300 / 14)r
+X=(#Width# / 14)r
 Hidden=1
 
 [meterRelativeTimeButton]
@@ -320,8 +321,8 @@ Text=R
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(300 / 14)r
-W=(300 / 7)
+X=(#Width# / 14)r
+W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
@@ -330,7 +331,7 @@ LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle R][!UpdateMeasure 
 
 [meterStyleSelectedHighlight]
 Meter=Shape
-Shape=Rectangle 0,0,(300 / 7),[meterRelativeTimeButton:H], #CornerRadius# | Extend Highlight | StrokeWidth 0
+Shape=Rectangle 0,0,(#Width# / 7),[meterRelativeTimeButton:H], #CornerRadius# | Extend Highlight | StrokeWidth 0
 ;add placeholder option to hide errors
 Highlight=Fill Color #LightHighlight#,#NoGradientTransparency#
 DynamicVariables=1
@@ -355,7 +356,7 @@ Text=Unit of Time
 AntiAlias=1
 Padding=#PaddingSize#
 Y=r
-W=280
+W=(#Width# - #SidePadding# * 2)
 Hidden=1
 FontFace=#FontFace#
 
