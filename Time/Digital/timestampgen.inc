@@ -93,6 +93,7 @@ Y=[meterTextBoxBackground:Y]
 Command1=[!SetOption MeasureOffset Formula $UserInput$][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
 Command2=[!SetOption MeasureOffset Formula $UserInput$*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
 Command3=[!SetOption MeasureOffset Formula $UserInput$*60*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
+Command4=[!SetOption MeasureOffset Formula $UserInput$*60*60*24][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
 Group=TextGroup | TextBoxGroup
 
 [measureTimeUnit]
@@ -104,6 +105,8 @@ IfMatch2=Minutes
 IfMatchAction2=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 2"]"""][!UpdateMeter meterTextBoxBackground]
 IfMatch3=Hours
 IfMatchAction3=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 3"]"""][!UpdateMeter meterTextBoxBackground]
+IfMatch4=Days
+IfMatchAction4=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 4"]"""][!UpdateMeter meterTextBoxBackground]
 
 [meterTimestampTitleBackground]
 Meter=Shape
@@ -377,8 +380,8 @@ Text=Seconds
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(#Width# / 6)
-W=(#Width# / 3)
+X=(#Width# / 8)
+W=(#Width# / 4)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Seconds"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
 Hidden=1
@@ -392,7 +395,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
 Y=r
-X=(#Width# / 6)r
+X=(#Width# / 8)r
 Hidden=1
 
 [measureMinButton]
@@ -402,8 +405,8 @@ Text=Minutes
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(#Width# / 6)r
-W=(#Width# / 3)
+X=(#Width# / 8)r
+W=(#Width# / 4)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Minutes"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
 Hidden=1
@@ -417,7 +420,7 @@ Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup | TimestampGroup
 Y=r
-X=(#Width# / 6)r
+X=(#Width# / 8)r
 Hidden=1
 
 [meterHrButton]
@@ -427,10 +430,35 @@ Text=Hours
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(#Width# / 6)r
-W=(#Width# / 3)
+X=(#Width# / 8)r
+W=(#Width# / 4)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Hours"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
+Hidden=1
+FontFace=#FontFace#
+
+[meterDayButtonBackground]
+Meter=Shape
+Shape=Rectangle 0,0,[meterDayButton:W],[meterDayButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+;add placeholder option to hide errors
+Gradient=0 | 0,0,0,0 ; 0.0
+DynamicVariables=1
+Group=BackgroundGroup | TimestampGroup
+Y=r
+X=(#Width# / 8)r
+Hidden=1
+
+[meterDayButton]
+Meter=String
+Group=TextGroup | TimestampGroup
+Text=Days
+AntiAlias=1
+Padding=0,#SidePadding#,0,#SidePadding#
+Y=r
+X=(#Width# / 8)r
+W=(#Width# / 4)
+StringAlign=Center
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Days"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -443,13 +471,13 @@ Hidden=1
 
 [meterTextBoxBackground]
 Meter=Shape
-Shape=Rectangle 0,0,100,37,#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,(#Width# / 4),37,#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup | TimestampGroup
 Y=R
-X=50
+X=(#Width# / 4)
 Hidden=1
 
 [meterSelectedUnitBackground]
