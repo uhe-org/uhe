@@ -54,8 +54,13 @@ Measure=String
 
 [measureStyleDisplay]
 Measure=Time
+TimeStamp=[measureDisplayTimeTarget]
+DynamicVariables=1
 
 [measureWindowsTime]
+Measure=Time
+
+[measureWindowsUtcTime]
 Measure=Time
 TimeZone=0
 DaylightSavingTime=0
@@ -68,7 +73,7 @@ UpdateDivider=-1
 
 [measureUnixTime]
 Measure=Calc
-Formula=MeasureWindowsTime-MeasureUnixTimeStart
+Formula=measureWindowsUtcTime-MeasureUnixTimeStart
 
 [measureOffset]
 Measure=Calc
@@ -77,6 +82,11 @@ UpdateDivider=-1
 [measureTimeTarget]
 Measure=Calc
 Formula=MeasureUnixTime+MeasureOffset
+
+[measureDisplayTimeTarget]
+Measure=Calc
+Formula=measureWindowsTime+MeasureOffset
+OnUpdateAction=[!UpdateMeasure measureStyleDisplay]
 
 [measureInput]
 Measure=Plugin
@@ -90,10 +100,10 @@ InputNumber=1
 InputLimit=6
 X=[meterTextBoxBackground:X]
 Y=[meterTextBoxBackground:Y]
-Command1=[!SetOption MeasureOffset Formula $UserInput$][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
-Command2=[!SetOption MeasureOffset Formula $UserInput$*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
-Command3=[!SetOption MeasureOffset Formula $UserInput$*60*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
-Command4=[!SetOption MeasureOffset Formula $UserInput$*60*60*24][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
+Command1=[!SetOption MeasureOffset Formula $UserInput$][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
+Command2=[!SetOption MeasureOffset Formula $UserInput$*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
+Command3=[!SetOption MeasureOffset Formula $UserInput$*60*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
+Command4=[!SetOption MeasureOffset Formula $UserInput$*60*60*24][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
 Group=TextGroup | TextBoxGroup
 
 [measureTimeUnit]
