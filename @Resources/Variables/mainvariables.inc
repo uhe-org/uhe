@@ -48,8 +48,11 @@ CornerRadius=10
 
 PaddingSize=#SidePadding#,#SidePadding#,#SidePadding#,#SidePadding#
 
-; samples taken from https://mixkit.co/free-sound-effects/interface/
+; samples taken from
+; - https://mixkit.co/free-sound-effects/interface/
+; - https://mixkit.co/free-sound-effects/typewriter/
 PlayButtonClick=[Play "#SKINSPATH#/uhe/@Resources/Samples/button-click.wav"]
+TypewriterPress=[Play "#SKINSPATH#/uhe/@Resources/Samples/typewriter-press.wav"]
 
 SetDarkModeGradient=[!SetOptionGroup TextGroup FontColor #DarkFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #DarkBackgroundColor#,#GradientHigh# ; 0.0 | #DarkBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #DarkerBackgroundColor#,#GradientHigh# ; 0.0 | #DarkerBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #DarkBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #DarkFontColor#]
 SetLightMode=[!SetOptionGroup TextGroup FontColor #LightFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #LightBackgroundColor#,#NoGradientTransparency# ; 0.0 | #LightBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #LighterBackgroundColor#,#NoGradientTransparency# ; 0.0 | #LighterBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #LightBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #LightFontColor#]
