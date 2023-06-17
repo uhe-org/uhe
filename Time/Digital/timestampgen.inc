@@ -352,6 +352,13 @@ Y=r
 Group=TimestampGroup
 Hidden=1
 
+[meterTimeUnitDivider]
+Meter=Image
+Group=TimestampGroup
+Y=R
+H=#SidePadding#
+Hidden=1
+
 [meterTimeUnitTitleBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterTimeUnitTitle:W],[meterTimeUnitTitle:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
@@ -359,7 +366,7 @@ Shape=Rectangle 0,0,[meterTimeUnitTitle:W],[meterTimeUnitTitle:H],#CornerRadius#
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
-Y=#SidePadding#R
+Y=R
 Hidden=1
 
 [meterTimeUnitTitle]
@@ -472,11 +479,11 @@ LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Days"][!U
 Hidden=1
 FontFace=#FontFace#
 
-[meterDivider]
+[meterTextBoxDivider]
 Meter=Image
 Group=TimestampGroup
 Y=R
-H=10
+H=#SidePadding#
 Hidden=1
 
 [meterTextBoxBackground]
@@ -512,6 +519,13 @@ X=r
 Hidden=1
 FontFace=#FontFace#
 
+[meterStyleDisplayDivider]
+Meter=Image
+Group=TimestampGroup
+Y=R
+H=#SidePadding#
+Hidden=1
+
 [meterStyleDisplayBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterStyleDisplay:W],[meterStyleDisplay:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
@@ -519,7 +533,7 @@ Shape=Rectangle 0,0,[meterStyleDisplay:W],[meterStyleDisplay:H],#CornerRadius# |
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
-Y=#SidePadding#R
+Y=R
 X=[meterStyleDisplay:X]
 Hidden=1
 
