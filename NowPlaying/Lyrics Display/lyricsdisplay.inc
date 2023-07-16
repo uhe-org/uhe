@@ -26,6 +26,15 @@ IfCondition=measureScrollbarHeight = [meterLyricsContainer:H]
 IfTrueAction=[!HideMeter meterScrollbar][!Redraw]
 IfFalseAction=[!ShowMeter meterScrollbar][!Redraw]
 
+[measureMouse]
+Measure=Plugin
+Plugin=Mouse
+LeftMouseDragAction=[!SetVariable CurrentY "(Clamp(([meterLyricsTitle:H]-$MouseY$),(-(Max([meterLyrics:H]-[meterLyricsContainer:H],0))),0))"][!Update][!Redraw]
+LeftMouseUpAction=[!CommandMeasure measureMouse "Stop"]
+RequireDragging=1
+RelativeToSkin=1
+DynamicVariables=1
+
 [meterLyricsTitleBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterLyricsTitle:W],[meterLyricsTitle:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
@@ -95,3 +104,4 @@ X=([meterScrollbarContainer:W] - #ScrollbarWidth#)
 H=[measureScrollbarHeight]
 SolidColor=#LightHighlight#
 Container=meterScrollbarContainer
+LeftMouseDownAction=[!CommandMeasure measureMouse "Start"]
