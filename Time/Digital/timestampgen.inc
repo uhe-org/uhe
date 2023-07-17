@@ -1,6 +1,13 @@
 [Variables]
 CurrentStyle=f
 Width=300
+ShortTimeText=Short Time
+LongTimeText=Long Time
+ShortDateText=Short Date
+LongDateText=Long Date
+ShortDateTimeText=Short Date/Time
+LongDateTimeText=Long Date/Time
+RelativeTimeText=Relative Time
 
 [measureStyle]
 Measure=String
@@ -161,6 +168,18 @@ W=(#Width# - #SidePadding# * 2)
 Hidden=1
 FontFace=#FontFace#
 
+[meterStyleName]
+Meter=String
+Group=TextGroup | TimestampGroup
+Text=#ShortDateTimeText#
+AntiAlias=1
+Padding=#PaddingSize#
+Y=r
+X=R
+Hidden=1
+FontFace=#FontFace#
+StringAlign=Right
+
 [meterShortTimeButtonBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterShortTimeButton:W],[meterShortTimeButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
@@ -183,8 +202,8 @@ W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
-ToolTipText=Short Time
-LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle t][!UpdateMeasure measureStyle]
+ToolTipText=#ShortTimeText#
+LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle t][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#ShortTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
 [meterLongTimeButtonBackground]
 Meter=Shape
@@ -209,8 +228,8 @@ W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
-ToolTipText=Long Time
-LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle T][!UpdateMeasure measureStyle]
+ToolTipText=#LongTimeText#
+LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle T][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#LongTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
 [meterShortDateButtonBackground]
 Meter=Shape
@@ -235,8 +254,8 @@ W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
-ToolTipText=Short Date
-LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle d][!UpdateMeasure measureStyle]
+ToolTipText=#ShortDateText#
+LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle d][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#ShortDateText#"][!UpdateMeter meterStyleName][!Redraw]
 
 [meterLongDateButtonBackground]
 Meter=Shape
@@ -261,8 +280,8 @@ W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
-ToolTipText=Long Date
-LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle D][!UpdateMeasure measureStyle]
+ToolTipText=#LongDateText#
+LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle D][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#LongDateText#"][!UpdateMeter meterStyleName][!Redraw]
 
 [meterShortDateTimeButtonBackground]
 Meter=Shape
@@ -287,8 +306,8 @@ W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
-ToolTipText=Short Date/Time
-LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle f][!UpdateMeasure measureStyle]
+ToolTipText=#ShortDateTimeText#
+LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle f][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#ShortDateTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
 [meterLongDateTimeButtonBackground]
 Meter=Shape
@@ -313,8 +332,8 @@ W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
-ToolTipText=Long Date/Time
-LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle F][!UpdateMeasure measureStyle]
+ToolTipText=#LongDateTimeText#
+LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle F][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#LongDateTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
 [meterRelativeTimeButtonBackground]
 Meter=Shape
@@ -339,8 +358,8 @@ W=(#Width# / 7)
 StringAlign=Center
 Hidden=1
 FontFace=#FontFace#
-ToolTipText=Relative Time
-LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle R][!UpdateMeasure measureStyle]
+ToolTipText=#RelativeTimeText#
+LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle R][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#RelativeTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
 [meterStyleSelectedHighlight]
 Meter=Shape
