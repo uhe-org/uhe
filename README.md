@@ -16,7 +16,7 @@ Desktop with dark mode:
 
 *Wallpaper source (Wallpaper Engine): [Blue Sky \[4K\]
 ](https://steamcommunity.com/sharedfiles/filedetails/?id=2944773634)*\
-*Layout: "Uhe osu! Layout"*
+*Layout: "uhe osu! Layout"*
 
 ## Extensions
 
