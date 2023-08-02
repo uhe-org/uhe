@@ -10,8 +10,7 @@ RegKey=SOFTWARE\Microsoft\Windows NT\CurrentVersion
 RegValue=CurrentBuild
 UpdateDivider=-1
 ; Windows 10+
-; currently disabled on Windows 11 22H2 and above pending fix
-IfCondition=(measureWinVer >= 10240) && (measureWinVer < 22621)
+IfCondition=(measureWinVer >= 10240)
 
 [meterMiddle]
 Meter=Shape

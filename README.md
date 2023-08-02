@@ -28,10 +28,11 @@ There are other skins I've developed in other repositories with the same aesthet
 
 Some skins rely on external plugins / software. All Rainmeter plugins listed should be packaged in the `.rmskin`.
 
-- CustomTaskbar
+- CustomTaskbar (Windows 10+)
     - TranslucentTaskbar ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=24879)) ([DeviantArt](https://www.deviantart.com/arkenthera/art/TranslucentTaskbar-1-2-656402039)) ([GitHub Gist](https://gist.github.com/0x61726b/7a807e04ee8f1d95425f710944667508))
-        - Windows 10+
-        - Note that Windows 11 22H2 and above broke this.
+        - Not currently compatible with Windows 11 22H2 and above, use TranslucentTB instead.
+    - [TranslucentTB (app)](https://github.com/TranslucentTB/TranslucentTB)
+
 - osu! scorecards (Best/Recent)
     - Speech ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=18&t=31161&p=158239)) ([GitHub Repo](https://github.com/jsmorley/PluginSpeech))
     - [osu-tools (CLI)](https://github.com/ppy/osu-tools)
