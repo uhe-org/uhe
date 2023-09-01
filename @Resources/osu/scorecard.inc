@@ -20,7 +20,7 @@ volume-high=[xf028]
 BaseFinishAction=[!ShowMeterGroup Content][!EnableMeasureGroup TimeMeasures][!HideMeterGroup LoadingGroup][!EnableMeasure measureOnConnectError][!UpdateMeasure measureOnConnectError][!DisableMeasure measureOnConnectError][!SetVariable OnRegExpErrorTriggered 0]
 BaseOnConnectErrorAction=[!HideMeterGroup Content][!DisableMeasureGroup TimeMeasures][!HideMeterGroup UpArrowGroup][!HideMeterGroup DownArrowGroup][!ShowMeterGroup LoadingGroup][!SetOption meterLoading Text "No internet connection..."][!UpdateMeter meterLoading][!SetVariable OnConnectErrorTriggered 1][!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!Redraw]
 BaseOnRegExpErrorAction=[!HideMeterGroup Content][!DisableMeasureGroup TimeMeasures][!HideMeterGroup UpArrowGroup][!HideMeterGroup DownArrowGroup][!ShowMeterGroup LoadingGroup][!SetOption meterLoading Text "No recent score..."][!UpdateMeter meterLoading][!HideMeter meterLoadingSpinner][!HideMeter meterSpinnerBackground][!SetVariable OnRegExpErrorTriggered 1][!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!Redraw]
-BaseScoreChangeAction=[!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!SetOption measureMultiplier Formula 0][!UpdateMeasure measureMultiplier][!SetVariable Size 0][!SetOption meterDropdown H 0][!HideMeterGroup UpArrowGroup][!HideMeterGroup DownArrowGroup][!CommandMeasure measureOsuFile Run][!EnableMeasure measureSpeech][!UpdateMeasure measureSpeech][!DisableMeasure measureSpeech]
+BaseScoreChangeAction=[!HideMeter meterDropdown][!HideMeter meterDropdownBackground][!SetOption measureMultiplier Formula 0][!UpdateMeasure measureMultiplier][!SetVariable Size 0][!SetOption meterDropdown H 0][!HideMeterGroup UpArrowGroup][!HideMeterGroup DownArrowGroup][!EnableMeasure measureExtendedStats][!CommandMeasure measureExtendedStats Update][!EnableMeasure measureSpeech][!UpdateMeasure measureSpeech][!DisableMeasure measureSpeech]
 AccuracyRegExp=.*"accuracy":(.*),
 ModsRegExp=.*"mods":\[(.*)\],
 ScoreRegExp=.*"score":(.*),
@@ -45,16 +45,25 @@ Measure=Plugin
 Plugin=RunCommand
 DynamicVariables=1
 Parameter=curl "https://osu.ppy.sh/osu/[&measureID]" --output beatmap.osu
-FinishAction=[!CommandMeasure measureExtendedStats Run]
+FinishAction=[!CommandMeasure measureGetExtendedStats Run]
 OutputType=UTF8
 
-[measureExtendedStats]
+[measureGetExtendedStats]
 Measure=Plugin
 Plugin=RunCommand
 DynamicVariables=1
-Parameter=dotnet run --project [measureDocsFolder]\GitHub\osu-tools\PerformanceCalculator -- simulate [measurePerfCalcMode] beatmap.osu [measurePerfCalcMods]
+Parameter=dotnet run --project [measureDocsFolder]\GitHub\osu-tools\PerformanceCalculator -- simulate [measurePerfCalcMode] beatmap.osu [measurePerfCalcMods] -o #@#Cache/[&measureID].txt
 OutputType=UTF8
+FinishAction=[!CommandMeasure measureExtendedStats Update]
+
+[measureExtendedStats]
+Measure=WebParser
+DynamicVariables=1
+Url=file://#@#Cache/[&measureID].txt
+RegExp=[\s\S]*
+Disabled=1
 FinishAction=[!EnableMeasure measureShowExtendedStatsOnStart][!UpdateMeasure measureShowExtendedStatsOnStart][!DisableMeasure measureShowExtendedStatsOnStart]
+OnConnectErrorAction=[!CommandMeasure measureOsuFile Run]
 
 [measurePerfCalcMode]
 Measure=String
