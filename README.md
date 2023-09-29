@@ -26,7 +26,7 @@ There are other skins I've developed in other repositories with the same aesthet
 
 ## Dependencies
 
-Some skins rely on external plugins / software. All Rainmeter plugins listed should be packaged in the `.rmskin`.
+Some skins rely on external plugins / software. All Rainmeter plugins listed below are packaged in the `.rmskin`.
 
 - CustomTaskbar (Windows 10+)
     - TranslucentTaskbar ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=24879)) ([DeviantArt](https://www.deviantart.com/arkenthera/art/TranslucentTaskbar-1-2-656402039)) ([GitHub Gist](https://gist.github.com/0x61726b/7a807e04ee8f1d95425f710944667508))
