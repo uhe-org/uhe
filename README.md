@@ -2,7 +2,7 @@
 
 A simple Rainmeter suite.
 
-This project started privately in July 2019 and has steadily gone through many revisions. This was made originally just for me and may not be for others in mind, so YMMV.
+This project started privately in July 2019 and has steadily gone through many revisions.
 
 *Note: This suite contains [osu!](https://osu.ppy.sh)-related skins out of the box.*
 
@@ -20,7 +20,7 @@ Desktop with dark mode:
 
 ## Extensions
 
-There are other skins I've developed in other repositories with the same aesthetic.
+There are skins developed in other repositories with the same aesthetic.
 
 - A todo list skin: https://github.com/Joehuu/uhe-todo-list
 
