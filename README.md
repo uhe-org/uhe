@@ -22,7 +22,7 @@ Desktop with dark mode:
 
 There are skins developed in other repositories with the same aesthetic.
 
-- To-Do List: https://github.com/Joehuu/uhe-todo-list
+- To-Do List: https://github.com/uhe-org/uhe-todo-list
 
 ## Dependencies
 
