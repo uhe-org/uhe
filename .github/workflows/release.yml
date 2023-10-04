@@ -9,6 +9,8 @@ on:
 jobs:
   package:
     runs-on: windows-latest
+    permissions:
+      contents: read
     outputs:
       target: ${{ steps.create_rmskin.outputs.target }}
     steps:
