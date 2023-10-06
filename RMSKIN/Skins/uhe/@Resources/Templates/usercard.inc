@@ -1,5 +1,5 @@
 [Rainmeter]
-@Include=mainvariables.inc
+@Include=../Variables/mainvariables.inc
 ContextTitle2="Edit base usercard"
 ContextAction2=["#@#Templates/usercard.inc"]
 
