@@ -11,7 +11,7 @@ ContextAction=["#@#Variables/mainvariables.inc"]
 Group=AllSkins
 
 [Variables]
-CurrentVersion=v1.2.1
+CurrentVersion=v1.3.1
 
 FontFace=Roboto Condensed
 DisplayFont=Bebas Neue
