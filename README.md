@@ -4,8 +4,6 @@ A simple Rainmeter suite.
 
 This project started privately in July 2019 and has steadily gone through many revisions.
 
-*Note: This suite contains [osu!](https://osu.ppy.sh)-related skins out of the box.*
-
 Desktop with light mode:
 
 ![Desktop-Light](assets/desktop-light.jpg)
@@ -22,6 +20,7 @@ Desktop with dark mode:
 There are skins developed in other repositories with the same aesthetic.
 
 - To-Do List: https://github.com/uhe-org/uhe-todo-list
+- osu! extension: https://github.com/uhe-org/uhe-osu-extension
 
 ## Dependencies
 
@@ -31,10 +30,6 @@ Some skins rely on external plugins / software. All Rainmeter plugins listed bel
     - TranslucentTaskbar ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=24879)) ([DeviantArt](https://www.deviantart.com/arkenthera/art/TranslucentTaskbar-1-2-656402039)) ([GitHub Gist](https://gist.github.com/0x61726b/7a807e04ee8f1d95425f710944667508))
         - Not currently compatible with Windows 11 22H2 and above, use TranslucentTB instead.
     - [TranslucentTB (app)](https://github.com/TranslucentTB/TranslucentTB)
-- osu! scorecards (Best/Recent)
-    - Speech ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=18&t=31161&p=158239)) ([GitHub Repo](https://github.com/jsmorley/PluginSpeech))
-    - [osu-tools (CLI)](https://github.com/ppy/osu-tools)
-        - needs to be in `Documents/GitHub`
 - KeyCounter
     - HotKey ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=18849)) ([GitHub Repo](https://github.com/brianferguson/HotKey.dll))
 - NowPlaying (Web)
