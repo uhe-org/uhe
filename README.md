@@ -8,15 +8,14 @@ This project started privately in July 2019 and has steadily gone through many r
 
 Desktop with light mode:
 
-![Desktop-Light](assets/desktop-light.png)
+![Desktop-Light](assets/desktop-light.jpg)
 
 Desktop with dark mode:
 
-![Desktop-Dark](assets/desktop-dark.png)
+![Desktop-Dark](assets/desktop-dark.jpg)
 
-*Wallpaper source (Wallpaper Engine): [Blue Sky \[4K\]
-](https://steamcommunity.com/sharedfiles/filedetails/?id=2944773634)*\
-*Layout: "uhe osu! Layout"*
+*Wallpaper source (Wallpaper Engine): [White Oak (Day/Night)](https://steamcommunity.com/sharedfiles/filedetails/?id=2911866381)*\
+*Layout: "uhe Default Layout"*
 
 ## Extensions
 
