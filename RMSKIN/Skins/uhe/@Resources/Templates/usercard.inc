@@ -1,7 +1,7 @@
 [Rainmeter]
 @Include=../Variables/mainvariables.inc
 ContextTitle2="Edit base usercard"
-ContextAction2=["#@#Templates/usercard.inc"]
+ContextAction2=["#SKINSPATH#/uhe/@Resources/Templates/usercard.inc"]
 
 [Variables]
 Width=400

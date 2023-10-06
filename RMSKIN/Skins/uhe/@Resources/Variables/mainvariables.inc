@@ -4,7 +4,7 @@
 AccurateText=1
 DynamicWindowSize=1
 ContextTitle="Edit main variables"
-ContextAction=["#@#Variables/mainvariables.inc"]
+ContextAction=["#SKINSPATH#\uhe\@Resources\Variables\mainvariables.inc"]
 @Include=uservariables.inc
 @Include3=formattingvariables.inc
 @Include4=easingvariables.inc
