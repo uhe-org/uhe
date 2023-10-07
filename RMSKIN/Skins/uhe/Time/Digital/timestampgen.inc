@@ -180,6 +180,17 @@ Hidden=1
 FontFace=#FontFace#
 StringAlign=Right
 
+[timeButtonStyle]
+Group=TextGroup | TimestampGroup
+AntiAlias=1
+Padding=0,#SidePadding#,0,#SidePadding#
+Y=r
+X=(#Width# / 14)r
+W=(#Width# / 7)
+StringAlign=Center
+Hidden=1
+FontFace=#FontFace#
+
 [meterShortTimeButtonBackground]
 Meter=Shape
 Shape=Rectangle 0,0,[meterShortTimeButton:W],[meterShortTimeButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
@@ -192,16 +203,9 @@ Hidden=1
 
 [meterShortTimeButton]
 Meter=String
-Group=TextGroup | TimestampGroup
+MeterStyle=timeButtonStyle
 Text=t
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
 X=(#Width# / 14)
-W=(#Width# / 7)
-StringAlign=Center
-Hidden=1
-FontFace=#FontFace#
 ToolTipText=#ShortTimeText#
 LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle t][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#ShortTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
@@ -218,16 +222,8 @@ Hidden=1
 
 [meterLongTimeButton]
 Meter=String
-Group=TextGroup | TimestampGroup
+MeterStyle=timeButtonStyle
 Text=T
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
-X=(#Width# / 14)r
-W=(#Width# / 7)
-StringAlign=Center
-Hidden=1
-FontFace=#FontFace#
 ToolTipText=#LongTimeText#
 LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle T][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#LongTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
@@ -244,16 +240,8 @@ Hidden=1
 
 [meterShortDateButton]
 Meter=String
-Group=TextGroup | TimestampGroup
+MeterStyle=timeButtonStyle
 Text=d
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
-X=(#Width# / 14)r
-W=(#Width# / 7)
-StringAlign=Center
-Hidden=1
-FontFace=#FontFace#
 ToolTipText=#ShortDateText#
 LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle d][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#ShortDateText#"][!UpdateMeter meterStyleName][!Redraw]
 
@@ -270,16 +258,8 @@ Hidden=1
 
 [meterLongDateButton]
 Meter=String
-Group=TextGroup | TimestampGroup
+MeterStyle=timeButtonStyle
 Text=D
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
-X=(#Width# / 14)r
-W=(#Width# / 7)
-StringAlign=Center
-Hidden=1
-FontFace=#FontFace#
 ToolTipText=#LongDateText#
 LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle D][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#LongDateText#"][!UpdateMeter meterStyleName][!Redraw]
 
@@ -296,16 +276,8 @@ Hidden=1
 
 [meterShortDateTimeButton]
 Meter=String
-Group=TextGroup | TimestampGroup
+MeterStyle=timeButtonStyle
 Text=f
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
-X=(#Width# / 14)r
-W=(#Width# / 7)
-StringAlign=Center
-Hidden=1
-FontFace=#FontFace#
 ToolTipText=#ShortDateTimeText#
 LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle f][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#ShortDateTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
@@ -322,16 +294,8 @@ Hidden=1
 
 [meterLongDateTimeButton]
 Meter=String
-Group=TextGroup | TimestampGroup
+MeterStyle=timeButtonStyle
 Text=F
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
-X=(#Width# / 14)r
-W=(#Width# / 7)
-StringAlign=Center
-Hidden=1
-FontFace=#FontFace#
 ToolTipText=#LongDateTimeText#
 LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle F][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#LongDateTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
@@ -348,16 +312,8 @@ Hidden=1
 
 [meterRelativeTimeButton]
 Meter=String
-Group=TextGroup | TimestampGroup
+MeterStyle=timeButtonStyle
 Text=R
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
-X=(#Width# / 14)r
-W=(#Width# / 7)
-StringAlign=Center
-Hidden=1
-FontFace=#FontFace#
 ToolTipText=#RelativeTimeText#
 LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle R][!UpdateMeasure measureStyle][!SetOption meterStyleName Text "#RelativeTimeText#"][!UpdateMeter meterStyleName][!Redraw]
 
