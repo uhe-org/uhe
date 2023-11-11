@@ -4,6 +4,9 @@ ContextTitle2="Edit side icon variables"
 ContextAction2=["#@#Variables/sideiconvariables.inc"]
 Group=IconSkins | AllSkins
 
+[Variables]
+BackgroundGroup=BackgroundGroup
+
 [measureIconSetting]
 Measure=Calc
 DynamicVariables=1
@@ -18,7 +21,7 @@ Shape=Rectangle 0,0,[meterSide:W],[meterSide:H],#CornerRadius# | Fill LinearGrad
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
-Group=BackgroundGroup
+Group=#BackgroundGroup#
 
 [meterSide]
 Meter=String
