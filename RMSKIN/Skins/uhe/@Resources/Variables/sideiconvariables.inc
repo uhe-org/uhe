@@ -6,6 +6,8 @@ Group=IconSkins | AllSkins
 
 [Variables]
 BackgroundGroup=BackgroundGroup
+BarHeight=5
+Width=160
 
 [measureIconSetting]
 Measure=Calc
@@ -17,7 +19,7 @@ IfFalseAction=[!SetVariable Label "#text#:"][!SetOption meterTooltip Text ""][!U
 
 [meterBackground]
 Meter=Shape
-Shape=Rectangle 0,0,[meterSide:W],[meterSide:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,[meterSide:W],([meterSide:H] + #BarHeight#),#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
@@ -25,7 +27,7 @@ Group=#BackgroundGroup#
 
 [meterSide]
 Meter=String
-W=(160 - (#SidePadding# * 2))
+W=(#Width# - (#SidePadding# * 2))
 FontFace=#FontFace#
 FontSize=15
 Padding=#PaddingSize#
@@ -38,22 +40,29 @@ Group=TextGroup
 MouseOverAction=[!ShowMeter meterTooltip][!Redraw]
 MouseLeaveAction=[!HideMeter meterTooltip][!Redraw]
 
+[meterBarContainer]
+Meter=Shape
+Shape=Rectangle 0,0,(#Width# - #CornerRadius# * 2),#BarHeight#,(#CornerRadius# / 2) | StrokeWidth 0
+;add placeholder option to hide errors
+DynamicVariables=1
+X=#CornerRadius#
+Y=([meterBackground:H] - #BarHeight# - #CornerRadius# / 2)
+
 [meterBar]
 Meter=Bar
-Y=R
-W=(160-#CornerRadius# * 2)
-H=5
-X=#CornerRadius#
+W=(#Width# - #CornerRadius# * 2)
+H=#BarHeight#
 BarOrientation=Horizontal
 BarColor=#LightHighlight#
 SolidColor=#BarBackgroundColor#
+Container=meterBarContainer
 
 [meterTooltip]
 Meter=String
 FontFace=#FontFace#
 FontSize=10
 AntiAlias=1
-X=160
+X=#Width#
 StringAlign=Right
 Group=TextGroup
 Hidden=1
