@@ -2,8 +2,6 @@
 
 A simple Rainmeter suite.
 
-This project started privately in July 2019 and has steadily gone through many revisions.
-
 Desktop with light mode:
 
 ![Desktop-Light](assets/desktop-light.jpg)
