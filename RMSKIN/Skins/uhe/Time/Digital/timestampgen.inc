@@ -20,11 +20,11 @@ IfMatchAction2=[!SetOption meterStyleSelectedHighlight X [meterLongTimeButton:X]
 IfMatch3=d
 IfMatchAction3=[!SetOption meterStyleSelectedHighlight X [meterShortDateButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%m/%d/%Y"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
 IfMatch4=D
-IfMatchAction4=[!SetOption meterStyleSelectedHighlight X [meterLongDateButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%B %#d, %G"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
+IfMatchAction4=[!SetOption meterStyleSelectedHighlight X [meterLongDateButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%B %#d, %Y"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
 IfMatch5=f
-IfMatchAction5=[!SetOption meterStyleSelectedHighlight X [meterShortDateTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%B %#d, %G %#I:%M %p"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
+IfMatchAction5=[!SetOption meterStyleSelectedHighlight X [meterShortDateTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%B %#d, %Y %#I:%M %p"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
 IfMatch6=F
-IfMatchAction6=[!SetOption meterStyleSelectedHighlight X [meterLongDateTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%A, %B %#d, %G %#I:%M %p"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
+IfMatchAction6=[!SetOption meterStyleSelectedHighlight X [meterLongDateTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%A, %B %#d, %Y %#I:%M %p"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
 IfMatch7=R
 IfMatchAction7=[!SetOption meterStyleSelectedHighlight X [meterRelativeTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption meterStyleDisplay Text "[measureTimeAgo][measureTimeLabel]"][!UpdateMeter meterStyleDisplay][!Redraw]
 
