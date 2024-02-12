@@ -107,10 +107,10 @@ InputNumber=1
 InputLimit=6
 X=[meterTextBoxBackground:X]
 Y=[meterTextBoxBackground:Y]
-Command1=[!SetOption MeasureOffset Formula $UserInput$][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
-Command2=[!SetOption MeasureOffset Formula $UserInput$*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
-Command3=[!SetOption MeasureOffset Formula $UserInput$*60*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
-Command4=[!SetOption MeasureOffset Formula $UserInput$*60*60*24][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!SetClip <t:[measureTimeTarget]:#CurrentStyle#>][!Redraw]
+Command1=[!SetOption MeasureOffset Formula $UserInput$][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+Command2=[!SetOption MeasureOffset Formula $UserInput$*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+Command3=[!SetOption MeasureOffset Formula $UserInput$*60*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+Command4=[!SetOption MeasureOffset Formula $UserInput$*60*60*24][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Group=TextGroup | TextBoxGroup
 
 [measureTimeUnit]
@@ -523,3 +523,5 @@ StringAlign=Center
 X=(#Width# / 2)
 Padding=#PaddingSize#
 OnUpdateAction=[!UpdateMeter meterStyleDisplayBackground]
+LeftMouseUpAction=#PlayButtonClick#[!SetClip <t:[measureTimeTarget]:#CurrentStyle#>]
+ToolTipText=copy to clipboard
