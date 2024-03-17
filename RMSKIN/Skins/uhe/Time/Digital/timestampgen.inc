@@ -72,6 +72,10 @@ Measure=Time
 TimeZone=0
 DaylightSavingTime=0
 
+[measureTimeZoneOffset]
+Measure=Calc
+Formula=measureWindowsTime-measureWindowsUtcTime
+
 [measureUnixTimeStart]
 Measure=Time
 TimeStamp=1970/01/01 00:00:00
@@ -82,48 +86,58 @@ UpdateDivider=-1
 Measure=Calc
 Formula=measureWindowsUtcTime-MeasureUnixTimeStart
 
-[measureOffset]
-Measure=Calc
-UpdateDivider=-1
-
 [measureTimeTarget]
 Measure=Calc
-Formula=MeasureUnixTime+MeasureOffset
+Formula=measureTargetDate-MeasureUnixTimeStart-measureTimeZoneOffset
 
 [measureDisplayTimeTarget]
 Measure=Calc
-Formula=measureWindowsTime+MeasureOffset
+Formula=measureTargetDate
 OnUpdateAction=[!UpdateMeasure measureStyleDisplay]
 
-[measureInput]
-Measure=Plugin
-Plugin=InputText
-W=[meterTextBoxBackground:W]
-H=[meterTextBoxBackground:H]
-FontSize=20
-FontFace=#FontFace#
-AntiAlias=1
-InputNumber=1
-InputLimit=6
-X=[meterTextBoxBackground:X]
-Y=[meterTextBoxBackground:Y]
-Command1=[!SetOption MeasureOffset Formula $UserInput$][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-Command2=[!SetOption MeasureOffset Formula $UserInput$*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-Command3=[!SetOption MeasureOffset Formula $UserInput$*60*60][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-Command4=[!SetOption MeasureOffset Formula $UserInput$*60*60*24][!UpdateMeasure MeasureOffset][!UpdateMeasure MeasureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-Group=TextGroup | TextBoxGroup
+[measureMonth]
+Measure=Time
+Format=%#m
 
-[measureTimeUnit]
-Measure=String
-String=Minutes
-IfMatch=Seconds
-IfMatchAction=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 1"]"""][!UpdateMeter meterTextBoxBackground]
-IfMatch2=Minutes
-IfMatchAction2=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 2"]"""][!UpdateMeter meterTextBoxBackground]
-IfMatch3=Hours
-IfMatchAction3=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 3"]"""][!UpdateMeter meterTextBoxBackground]
-IfMatch4=Days
-IfMatchAction4=[!SetOption meterTextBoxBackground LeftMouseUpAction """[!CommandMeasure measureInput "ExecuteBatch 4"]"""][!UpdateMeter meterTextBoxBackground]
+[measureDay]
+Measure=Time
+Format=%#d
+
+[measureYear]
+Measure=Time
+Format=%Y
+
+[measureTargetMonth]
+Measure=Calc
+DynamicVariables=1
+Formula=[measureMonth]
+
+[measureTargetDay]
+Measure=Calc
+DynamicVariables=1
+Formula=[measureDay]
+
+[measureTargetYear]
+Measure=Calc
+DynamicVariables=1
+Formula=[measureYear]
+
+[measureTargetHour]
+Measure=Calc
+DynamicVariables=1
+Formula=[measureHours]
+
+[measureTargetMinute]
+Measure=Calc
+DynamicVariables=1
+Formula=[measureMinutes]
+
+[measureTargetDate]
+Measure=Time
+DynamicVariables=1
+TimeStamp=[measureTargetMonth]/[measureTargetDay]/[measureTargetYear] [measureTargetHour]:[measureTargetMinute]
+TimeStampFormat=%#m/%#d/%Y %H:%M
+OnUpdateAction=[!UpdateMeasure measureDisplayTimeTarget]
 
 [meterTimestampTitleBackground]
 Meter=Shape
@@ -334,9 +348,9 @@ Y=R
 H=#SidePadding#
 Hidden=1
 
-[meterTimeUnitTitleBackground]
+[meterDateTitleBackground]
 Meter=Shape
-Shape=Rectangle 0,0,[meterTimeUnitTitle:W],[meterTimeUnitTitle:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,[meterDateTimeUnitTitle:W],[meterDateTimeUnitTitle:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
@@ -344,10 +358,10 @@ Group=BackgroundGroup | TimestampGroup
 Y=R
 Hidden=1
 
-[meterTimeUnitTitle]
+[meterDateTimeUnitTitle]
 Meter=String
 Group=TextGroup | TimestampGroup
-Text=Add time in:
+Text=Specific date:
 AntiAlias=1
 Padding=#PaddingSize#
 Y=r
@@ -355,9 +369,9 @@ W=(#Width# - #SidePadding# * 2)
 Hidden=1
 FontFace=#FontFace#
 
-[meterSecButtonBackground]
+[meterMonthButtonBackground]
 Meter=Shape
-Shape=Rectangle 0,0,[meterSecButton:W],[meterSecButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,[meterMonthButton:W],[meterMonthButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
@@ -365,105 +379,86 @@ Group=OpaqueBackgroundGroup | TimestampGroup
 Y=R
 Hidden=1
 
-[meterSecButton]
+[meterMonthButton]
 Meter=String
 Group=TextGroup | TimestampGroup
-Text=Seconds
+DynamicVariables=1
+Text=[measureTargetMonth]
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(#Width# / 8)
-W=(#Width# / 4)
+X=(#Width# / 6)
+W=(#Width# / 3)
 StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Seconds"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "[measureTargetMonth] + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "[measureTargetMonth] - 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
-[measureMinButtonBackground]
+[meterDayDateButtonBackground]
 Meter=Shape
-Shape=Rectangle 0,0,[measureMinButton:W],[measureMinButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,[meterDayDateButton:W],[meterDayDateButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
 Y=r
-X=(#Width# / 8)r
+X=(#Width# / 6)r
 Hidden=1
 
-[measureMinButton]
+[meterDayDateButton]
 Meter=String
 Group=TextGroup | TimestampGroup
-Text=Minutes
+DynamicVariables=1
+Text=[measureTargetDay]
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(#Width# / 8)r
-W=(#Width# / 4)
+X=(#Width# / 6)r
+W=(#Width# / 3)
 StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Minutes"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "[measureTargetDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "[measureTargetDay] - 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
-[meterHrButtonBackground]
+[meterYearButtonBackground]
 Meter=Shape
-Shape=Rectangle 0,0,[meterHrButton:W],[meterHrButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,[meterYearButton:W],[meterYearButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=OpaqueBackgroundGroup | TimestampGroup
 Y=r
-X=(#Width# / 8)r
+X=(#Width# / 6)r
 Hidden=1
 
-[meterHrButton]
+[meterYearButton]
 Meter=String
 Group=TextGroup | TimestampGroup
-Text=Hours
-AntiAlias=1
-Padding=0,#SidePadding#,0,#SidePadding#
-Y=r
-X=(#Width# / 8)r
-W=(#Width# / 4)
-StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Hours"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
-Hidden=1
-FontFace=#FontFace#
-
-[meterDayButtonBackground]
-Meter=Shape
-Shape=Rectangle 0,0,[meterDayButton:W],[meterDayButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
-;add placeholder option to hide errors
-Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
-Group=BackgroundGroup | TimestampGroup
-Y=r
-X=(#Width# / 8)r
-Hidden=1
-
-[meterDayButton]
-Meter=String
-Group=TextGroup | TimestampGroup
-Text=Days
+Text=[measureTargetYear]
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=(#Width# / 8)r
-W=(#Width# / 4)
+X=(#Width# / 6)r
+W=(#Width# / 3)
 StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTimeUnit String "Days"][!UpdateMeasure measureTimeUnit][!UpdateMeter meterSelectedUnit][!UpdateMeter meterSelectedUnitBackground][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetYear Formula "[measureTargetYear] + 1"][!UpdateMeasure measureTargetYear][!UpdateMeter meterYearButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetYear Formula "[measureTargetYear] - 1"][!UpdateMeasure measureTargetYear][!UpdateMeter meterYearButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
-[meterTextBoxDivider]
+[meterTimeDivider]
 Meter=Image
 Group=TimestampGroup
 Y=R
 H=#SidePadding#
 Hidden=1
 
-[meterTextBoxBackground]
+[meterHourButtonBackground]
 Meter=Shape
-Shape=Rectangle 0,0,(#Width# / 4),37,#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,[meterHourButton:W],[meterHourButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
@@ -472,25 +467,71 @@ Y=R
 X=(#Width# / 4)
 Hidden=1
 
-[meterSelectedUnitBackground]
+[meterHourButton]
+Meter=String
+Group=TextGroup | TimestampGroup
+DynamicVariables=1
+Text=[measureTargetHour]
+AntiAlias=1
+Padding=0,#SidePadding#,0,#SidePadding#
+Y=r
+X=(#Width# / 12)r
+W=(#Width# / 6)
+StringAlign=Center
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "[measureTargetHour] + 1"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "[measureTargetHour] - 1"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+Hidden=1
+FontFace=#FontFace#
+
+[meterColonBackground]
 Meter=Shape
-Shape=Rectangle 0,0,[meterSelectedUnit:W],[meterSelectedUnit:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+Shape=Rectangle 0,0,[meterColon:W],[meterColon:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
 Group=BackgroundGroup | TimestampGroup
 Y=r
-X=R
+X=(#Width# / 8)r
 Hidden=1
 
-[meterSelectedUnit]
+[meterColon]
 Meter=String
 Group=TextGroup | TimestampGroup
-MeasureName=measureTimeUnit
+DynamicVariables=1
+Text=:
 AntiAlias=1
-Padding=#PaddingSize#
+Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
-X=r
+X=(#Width# / 24)r
+W=(#Width# / 12)
+StringAlign=Center
+Hidden=1
+FontFace=#FontFace#
+
+[meterMinuteButtonBackground]
+Meter=Shape
+Shape=Rectangle 0,0,[meterMinuteButton:W],[meterMinuteButton:H],#CornerRadius# | Fill LinearGradient Gradient | StrokeWidth 0
+;add placeholder option to hide errors
+Gradient=0 | 0,0,0,0 ; 0.0
+DynamicVariables=1
+Group=OpaqueBackgroundGroup | TimestampGroup
+Y=r
+X=(#Width# / 12)r
+Hidden=1
+
+[meterMinuteButton]
+Meter=String
+Group=TextGroup | TimestampGroup
+DynamicVariables=1
+Text=[measureTargetMinute]
+AntiAlias=1
+Padding=0,#SidePadding#,0,#SidePadding#
+Y=r
+X=(#Width# / 12)r
+W=(#Width# / 6)
+StringAlign=Center
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "[measureTargetMinute] + 1"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "[measureTargetMinute] - 1"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
