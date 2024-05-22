@@ -65,10 +65,9 @@ Y=R
 
 [meterLyricsContainer]
 Meter=Image
-H=(#wORKAREAHEIGHT# / 2)
+H=(Min([meterLyrics:H], (#wORKAREAHEIGHT# / 2)))
 Y=r
-W=250
-Padding=#PaddingSize#
+W=270
 SolidColor=0,0,0
 DynamicVariables=1
 MouseScrollDownAction=[!SetVariable CurrentY "(Clamp((#CurrentY# - #ScrollDistance#),(-(Max([meterLyrics:H]-[meterLyricsContainer:H],0))),0))"][!UpdateMeter *][!Redraw]
@@ -87,6 +86,7 @@ Group=TextGroup
 Container=meterLyricsContainer
 DynamicVariables=1
 Y=#CurrentY#
+OnUpdateAction=[!UpdateMeter meterLyricsContainer][!UpdateMeter meterLyricsContainerVisible]
 
 [meterScrollbarContainer]
 Meter=Shape
