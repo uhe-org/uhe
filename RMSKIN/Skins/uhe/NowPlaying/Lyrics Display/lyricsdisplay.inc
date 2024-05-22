@@ -98,7 +98,7 @@ Y=r
 [meterScrollbar]
 Meter=Image
 DynamicVariables=1
-Y=(([meterLyricsContainer:H]-[meterScrollbar:H]) * (-#CurrentY# / ([meterLyrics:H]-[meterLyricsContainer:H])))r
+Y=(([meterLyricsContainer:H]-[meterScrollbar:H]) * (-#CurrentY# / Max([meterLyrics:H]-[meterLyricsContainer:H], 1)))r
 W=#ScrollbarWidth#
 X=([meterScrollbarContainer:W] - #ScrollbarWidth#)
 H=[measureScrollbarHeight]
