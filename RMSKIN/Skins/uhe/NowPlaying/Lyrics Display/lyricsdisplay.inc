@@ -86,7 +86,7 @@ Group=TextGroup
 Container=meterLyricsContainer
 DynamicVariables=1
 Y=#CurrentY#
-OnUpdateAction=[!UpdateMeter meterLyricsContainer][!UpdateMeter meterLyricsContainerVisible]
+OnUpdateAction=[!UpdateMeter meterLyricsContainer][!UpdateMeter meterLyricsContainerVisible][!UpdateMeasure measureScrollbarHeight]
 
 [meterScrollbarContainer]
 Meter=Shape
