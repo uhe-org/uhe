@@ -1,6 +1,6 @@
 # uhe
 
-A simple Rainmeter suite.
+A Rainmeter suite with a simple duotone design.
 
 Desktop with light mode:
 
