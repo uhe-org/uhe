@@ -33,9 +33,8 @@ LighterBackgroundColor=255,255,255
 
 ClickableTransparentColor=0,0,0,1
 
-BarBackgroundTransparency=0
-BarBackgroundColor=0,0,0,#BarBackgroundTransparency#
-LightBarBackgroundColor=0,0,0,#BarBackgroundTransparency#
+BarBackgroundColor=#DarkerBackgroundColor#,#NoGradientTransparency#
+OpaqueBarBackgroundColor=#DarkBackgroundColor#,#NoGradientTransparency#
 
 DarkFontColor=255,255,255
 LightFontColor=0,0,0

@@ -6,6 +6,7 @@ Group=IconSkins | AllSkins
 
 [Variables]
 BackgroundGroup=BackgroundGroup
+BarBackground=#BarBackgroundColor#
 BarHeight=5
 Width=130
 
@@ -54,8 +55,8 @@ W=(#Width# - #CornerRadius# * 2)
 H=#BarHeight#
 BarOrientation=Horizontal
 BarColor=#LightHighlight#
-SolidColor=#BarBackgroundColor#
 Container=meterBarContainer
+SolidColor=#BarBackground#
 
 [meterTooltip]
 Meter=String
