@@ -32,6 +32,8 @@ Some skins rely on external plugins / software. All Rainmeter plugins listed bel
     - HotKey ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=18849)) ([GitHub Repo](https://github.com/brianferguson/HotKey.dll))
 - NowPlaying (Web)
     - WebNowPlaying ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?f=127&t=26619)) ([GitHub Repo](https://github.com/keifufu/WebNowPlaying-Redux-Rainmeter))
+- Lyrics Display
+    - Mouse ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=26030)) ([GitHub Repo](https://github.com/NighthawkSLO/Mouse.dll))
 
 ## License
 
