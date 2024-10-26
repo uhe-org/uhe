@@ -25,10 +25,10 @@ GradientHigh=200
 GradientLow=1
 NoGradientTransparency=150
 
-DarkBackgroundColor=50,50,50
+DarkBackgroundColor=70,70,70
 DarkerBackgroundColor=0,0,0
 
-LightBackgroundColor=205,205,205
+LightBackgroundColor=185,185,185
 LighterBackgroundColor=255,255,255
 
 ClickableTransparentColor=0,0,0,1
