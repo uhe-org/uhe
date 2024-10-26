@@ -7,7 +7,7 @@ Group=IconSkins | AllSkins
 [Variables]
 BackgroundGroup=BackgroundGroup
 BarHeight=5
-Width=160
+Width=130
 
 [measureIconSetting]
 Measure=Calc
@@ -29,7 +29,7 @@ Group=#BackgroundGroup#
 Meter=String
 W=(#Width# - (#SidePadding# * 2))
 FontFace=#FontFace#
-FontSize=15
+FontSize=12
 Padding=#PaddingSize#
 AntiAlias=1
 InlineSetting=Face | #IconFace#
