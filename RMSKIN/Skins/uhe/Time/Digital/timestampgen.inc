@@ -478,8 +478,8 @@ Y=r
 X=(#Width# / 12)r
 W=(#Width# / 6)
 StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "[measureTargetHour] + 1"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "[measureTargetHour] - 1"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "(([measureTargetHour] + 1) % 24 + 24) % 24"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "(([measureTargetHour] - 1) % 24 + 24) % 24"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -530,8 +530,8 @@ Y=r
 X=(#Width# / 12)r
 W=(#Width# / 6)
 StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "[measureTargetMinute] + 1"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "[measureTargetMinute] - 1"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "(([measureTargetMinute] + 1) % 60 + 60) % 60"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "(([measureTargetMinute] - 1) % 60 + 60) % 60"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
