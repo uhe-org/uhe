@@ -333,7 +333,7 @@ LeftMouseUpAction=#PlayButtonClick#[!SetVariable CurrentStyle R][!UpdateMeasure 
 
 [meterStyleSelectedHighlight]
 Meter=Shape
-Shape=Rectangle 0,0,(#Width# / 7),[meterRelativeTimeButton:H], #CornerRadius# | Extend Highlight | StrokeWidth 0
+Shape=Rectangle (#Width# / 28),(2 * [meterRelativeTimeButton:H] / 3),(#Width# / 14), 4, 2 | Extend Highlight | StrokeWidth 0
 ;add placeholder option to hide errors
 Highlight=Fill Color #LightHighlight#,#NoGradientTransparency#
 DynamicVariables=1
