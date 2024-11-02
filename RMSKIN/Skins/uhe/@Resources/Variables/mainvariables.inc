@@ -6,8 +6,7 @@ DynamicWindowSize=1
 ContextTitle="Edit main variables"
 ContextAction=["#SKINSPATH#\uhe\@Resources\Variables\mainvariables.inc"]
 @Include=uservariables.inc
-@Include3=formattingvariables.inc
-@Include4=easingvariables.inc
+@Include2=formattingvariables.inc
 Group=AllSkins
 
 [Variables]
@@ -76,9 +75,3 @@ IfTrueAction=#SetDarkModeGradient#
 IfTrueAction2=#SetLightMode#
 IfTrueAction3=#SetLightModeGradient#
 IfTrueAction4=#SetDarkMode#
-
-[measureDocsFolder]
-Measure=Registry
-RegHKey=HKEY_CURRENT_USER
-RegKey=SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
-RegValue=Personal
