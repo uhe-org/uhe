@@ -111,16 +111,32 @@ Format=%Y
 Measure=Calc
 DynamicVariables=1
 Formula=[measureMonth]
+OnUpdateAction=[!UpdateMeasure measureLastDay]
 
 [measureTargetDay]
 Measure=Calc
 DynamicVariables=1
 Formula=[measureDay]
+OnUpdateAction=[!UpdateMeter meterDayDateButton]
+
+[measureLastDay]
+Measure=Calc
+IfCondition=([measureTargetMonth] = 1) || ([measureTargetMonth] = 3) || ([measureTargetMonth] = 5) || ([measureTargetMonth] = 6) || ([measureTargetMonth] = 8) || ([measureTargetMonth] = 10) || ([measureTargetMonth] = 12)
+IfTrueAction=[!SetOption #CURRENTSECTION# Formula 31][!UpdateMeasure #CURRENTSECTION#]
+IfCondition2=([measureTargetMonth] = 4) || ([measureTargetMonth] = 7) || ([measureTargetMonth] = 9) || ([measureTargetMonth] = 11)
+IfTrueAction2=[!SetOption #CURRENTSECTION# Formula 30][!UpdateMeasure #CURRENTSECTION#]
+IfCondition3=([measureTargetMonth] = 2) && ([measureTargetYear] % 4 <> 0)
+IfTrueAction3=[!SetOption #CURRENTSECTION# Formula 28][!UpdateMeasure #CURRENTSECTION#]
+IfCondition4=([measureTargetMonth] = 2) && ([measureTargetYear] % 4 = 0)
+IfTrueAction4=[!SetOption #CURRENTSECTION# Formula 29][!UpdateMeasure #CURRENTSECTION#]
+DynamicVariables=1
+OnChangeAction=[!SetOption measureTargetDay Formula "Min([measureTargetDay], [measureLastDay])"][!UpdateMeasure measureTargetDay]
 
 [measureTargetYear]
 Measure=Calc
 DynamicVariables=1
 Formula=[measureYear]
+OnUpdateAction=[!UpdateMeasure measureLastDay]
 
 [measureTargetHour]
 Measure=Calc
@@ -417,8 +433,8 @@ Y=r
 X=(#Width# / 6)r
 W=(#Width# / 3)
 StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "[measureTargetDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "[measureTargetDay] - 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "(([measureTargetDay] + 1) + [measureLastDay] - 1) % [measureLastDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "(([measureTargetDay] - 1) + [measureLastDay] - 1) % [measureLastDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
