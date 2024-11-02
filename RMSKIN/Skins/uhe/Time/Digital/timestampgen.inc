@@ -147,6 +147,14 @@ Formula=[measureHours]
 Measure=Calc
 DynamicVariables=1
 Formula=[measureMinutes]
+OnChangeAction=[!UpdateMeasure measureTargetMinuteString]
+
+[measureTargetMinuteString]
+Measure=String
+DynamicVariables=1
+String=[measureTargetMinute]
+RegExpSubstitute=1
+Substitute="(\b\d\b)":"0\1"
 
 [measureTargetDate]
 Measure=Time
@@ -539,7 +547,7 @@ Hidden=1
 Meter=String
 Group=TextGroup | TimestampGroup
 DynamicVariables=1
-Text=[measureTargetMinute]
+Text=[measureTargetMinuteString]
 AntiAlias=1
 Padding=0,#SidePadding#,0,#SidePadding#
 Y=r
