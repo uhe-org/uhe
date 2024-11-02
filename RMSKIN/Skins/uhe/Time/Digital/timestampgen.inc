@@ -390,8 +390,8 @@ Y=r
 X=(#Width# / 6)
 W=(#Width# / 3)
 StringAlign=Center
-LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "[measureTargetMonth] + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
-RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "[measureTargetMonth] - 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "(([measureTargetMonth] + 1) + 11) % 12 + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "(([measureTargetMonth] - 1) + 11) % 12 + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
