@@ -26,38 +26,53 @@ IfMatchAction5=[!SetOption meterStyleSelectedHighlight X [meterShortDateTimeButt
 IfMatch6=F
 IfMatchAction6=[!SetOption meterStyleSelectedHighlight X [meterLongDateTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption measureStyleDisplay Format "%A, %B %#d, %Y %#I:%M %p"][!UpdateMeasure measureStyleDisplay][!SetOption meterStyleDisplay Text ""][!UpdateMeter meterStyleDisplay][!Redraw]
 IfMatch7=R
-IfMatchAction7=[!SetOption meterStyleSelectedHighlight X [meterRelativeTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption meterStyleDisplay Text "[measureTimeAgo][measureTimeLabel]"][!UpdateMeter meterStyleDisplay][!Redraw]
+IfMatchAction7=[!SetOption meterStyleSelectedHighlight X [meterRelativeTimeButton:X]][!UpdateMeter meterStyleSelectedHighlight][!SetOption meterStyleDisplay Text "%4%2%3%5"][!UpdateMeter meterStyleDisplay][!Redraw]
 
-[measureTimeAgo]
+[measureRelativeTime]
 Measure=Calc
-Formula=0 < 60 ? 0 : (0 < 3600 ? Round(0 / 60) : (0 < 86400 ? Round(0 / 3600) : (0 < 2592000 ? Round(0 / 86400) : (0 < 31104000 ? Round(0 / 2592000) : Round(0 / 31104000)))))
-IfCondition=0 = 1
-IfTrueAction=[!SetOption measureTimeLabel String " second ago"]
-IfCondition2=((0 <> 1) && (0 < 60))
-IfTrueAction2=[!SetOption measureTimeLabel String " seconds ago"]
-IfCondition3=((0 >= 60) && (0 < 90))
-IfTrueAction3=[!SetOption measureTimeLabel String " minute ago"]
-IfCondition4=((0 >= 90) && (0 < 3600))
-IfTrueAction4=[!SetOption measureTimeLabel String " minutes ago"]
-IfCondition5=((0 >= 3600) && (0 < 5400))
-IfTrueAction5=[!SetOption measureTimeLabel String " hour ago"]
-IfCondition6=((0 >= 5400) && (0 < 86400))
-IfTrueAction6=[!SetOption measureTimeLabel String " hours ago"]
-IfCondition7=((0 >= 86400) && (0 < 129600))
-IfTrueAction7=[!SetOption measureTimeLabel String " day ago"]
-IfCondition8=((0 >= 129600) && (0 < 2592000))
-IfTrueAction8=[!SetOption measureTimeLabel String " days ago"]
-IfCondition9=((0 >= 2592000) && (0 < 3888000))
-IfTrueAction9=[!SetOption measureTimeLabel String " month ago"]
-IfCondition10=((0 >= 3888000) && (0 < 31104000))
-IfTrueAction10=[!SetOption measureTimeLabel String " months ago"]
-IfCondition11=((0 >= 31104000) && (0 < 46656000))
-IfTrueAction11=[!SetOption measureTimeLabel String " year ago"]
-IfCondition12=((0 >= 46656000))
-IfTrueAction12=[!SetOption measureTimeLabel String " years ago"]
+DynamicVariables=1
+Formula=[measureDifferenceAbs] < 60 ? [measureDifferenceAbs] : ([measureDifferenceAbs] < 3600 ? Round([measureDifferenceAbs] / 60) : ([measureDifferenceAbs] < 86400 ? Round([measureDifferenceAbs] / 3600) : ([measureDifferenceAbs] < 2592000 ? Round([measureDifferenceAbs] / 86400) : ([measureDifferenceAbs] < 31104000 ? Round([measureDifferenceAbs] / 2592000) : Round([measureDifferenceAbs] / 31104000)))))
+IfCondition=[measureDifferenceAbs] = 1
+IfTrueAction=[!SetOption measureTimeLabel String " second"]
+IfCondition2=(([measureDifferenceAbs] <> 1) && ([measureDifferenceAbs] < 60))
+IfTrueAction2=[!SetOption measureTimeLabel String " seconds"]
+IfCondition3=(([measureDifferenceAbs] >= 60) && ([measureDifferenceAbs] < 90))
+IfTrueAction3=[!SetOption measureTimeLabel String " minute"]
+IfCondition4=(([measureDifferenceAbs] >= 90) && ([measureDifferenceAbs] < 3600))
+IfTrueAction4=[!SetOption measureTimeLabel String " minutes"]
+IfCondition5=(([measureDifferenceAbs] >= 3600) && ([measureDifferenceAbs] < 5400))
+IfTrueAction5=[!SetOption measureTimeLabel String " hour"]
+IfCondition6=(([measureDifferenceAbs] >= 5400) && ([measureDifferenceAbs] < 86400))
+IfTrueAction6=[!SetOption measureTimeLabel String " hours"]
+IfCondition7=(([measureDifferenceAbs] >= 86400) && ([measureDifferenceAbs] < 129600))
+IfTrueAction7=[!SetOption measureTimeLabel String " day"]
+IfCondition8=(([measureDifferenceAbs] >= 129600) && ([measureDifferenceAbs] < 2592000))
+IfTrueAction8=[!SetOption measureTimeLabel String " days"]
+IfCondition9=(([measureDifferenceAbs] >= 2592000) && ([measureDifferenceAbs] < 3888000))
+IfTrueAction9=[!SetOption measureTimeLabel String " month"]
+IfCondition10=(([measureDifferenceAbs] >= 3888000) && ([measureDifferenceAbs] < 31104000))
+IfTrueAction10=[!SetOption measureTimeLabel String " months"]
+IfCondition11=(([measureDifferenceAbs] >= 31104000) && ([measureDifferenceAbs] < 46656000))
+IfTrueAction11=[!SetOption measureTimeLabel String " year"]
+IfCondition12=(([measureDifferenceAbs] >= 46656000))
+IfTrueAction12=[!SetOption measureTimeLabel String " years"]
+IfCondition13=[measureDifference] < 0
+IfTrueAction13=[!SetOption measurePrefix String ""][!SetOption measureSuffix String " ago"]
+IfCondition14=[measureDifference] >= 0
+IfTrueAction14=[!SetOption measurePrefix String "in "][!SetOption measureSuffix String ""]
+OnUpdateAction=[!UpdateMeasure measureTimeLabel][!UpdateMeasure measurePrefix][!UpdateMeasure measureSuffix]
 
 [measureTimeLabel]
 Measure=String
+UpdateDivider=-1
+
+[measurePrefix]
+Measure=String
+UpdateDivider=-1
+
+[measureSuffix]
+Measure=String
+UpdateDivider=-1
 
 [measureStyleDisplay]
 Measure=Time
@@ -89,11 +104,25 @@ Formula=measureWindowsUtcTime-MeasureUnixTimeStart
 [measureTimeTarget]
 Measure=Calc
 Formula=measureTargetDate-MeasureUnixTimeStart-measureTimeZoneOffset
+UpdateDivider=-1
+
+[measureDifference]
+Measure=Calc
+Formula=measureTargetDate-measureWindowsTime
+OnUpdateAction=[!UpdateMeasure measureDifferenceAbs]
+UpdateDivider=-1
+
+[measureDifferenceAbs]
+Measure=Calc
+Formula=Abs(measureDifference)
+OnUpdateAction=[!UpdateMeasure measureRelativeTime]
+UpdateDivider=-1
 
 [measureDisplayTimeTarget]
 Measure=Calc
 Formula=measureTargetDate
 OnUpdateAction=[!UpdateMeasure measureStyleDisplay]
+UpdateDivider=-1
 
 [measureMonth]
 Measure=Time
@@ -161,7 +190,7 @@ Measure=Time
 DynamicVariables=1
 TimeStamp=[measureTargetMonth]/[measureTargetDay]/[measureTargetYear] [measureTargetHour]:[measureTargetMinute]
 TimeStampFormat=%#m/%#d/%Y %H:%M
-OnUpdateAction=[!UpdateMeasure measureDisplayTimeTarget]
+OnUpdateAction=[!UpdateMeasure measureDisplayTimeTarget][!UpdateMeasure measureTimeTarget][!UpdateMeasure measureDifference]
 
 [meterTimestampTitleBackground]
 Meter=Shape
@@ -580,6 +609,10 @@ Hidden=1
 [meterStyleDisplay]
 Meter=String
 MeasureName=measureStyleDisplay
+MeasureName2=measureRelativeTime
+MeasureName3=measureTimeLabel
+MeasureName4=measurePrefix
+MeasureName5=measureSuffix
 Y=r
 Group=TextGroup | TimestampGroup
 Hidden=1
