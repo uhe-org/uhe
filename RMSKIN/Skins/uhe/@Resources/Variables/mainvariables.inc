@@ -57,20 +57,47 @@ SetLightMode=[!SetOptionGroup TextGroup FontColor #LightFontColor#][!SetOptionGr
 SetLightModeGradient=[!SetOptionGroup TextGroup FontColor #LightFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #LightBackgroundColor#,#GradientHigh# ; 0.0 | #LightBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #LighterBackgroundColor#,#GradientHigh# ; 0.0 | #LighterBackgroundColor#,#GradientLow# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #LightBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #LightFontColor#]
 SetDarkMode=[!SetOptionGroup TextGroup FontColor #DarkFontColor#][!SetOptionGroup BackgroundGroup Gradient "180 | #DarkBackgroundColor#,#NoGradientTransparency# ; 0.0 | #DarkBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup OpaqueBackgroundGroup Gradient "180 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 0.0 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 1.0"][!SetOptionGroup TextBoxGroup SolidColor #DarkBackgroundColor#][!SetOptionGroup SpriteGroup ImageTint #DarkFontColor#]
 
+SetTaskbarDarkModeGradient=[!SetOptionGroup TaskbarGroup Gradient "180 | #DarkerBackgroundColor#,#GradientHigh# ; 0.0 | #DarkerBackgroundColor#,#GradientLow# ; 1.0"]
+SetTaskbarLightMode=[!SetOptionGroup TaskbarGroup Gradient "180 | #LighterBackgroundColor#,#NoGradientTransparency# ; 0.0 | #LighterBackgroundColor#,#NoGradientTransparency# ; 1.0"]
+SetTaskbarLightModeGradient=[!SetOptionGroup TaskbarGroup Gradient "180 | #LighterBackgroundColor#,#GradientHigh# ; 0.0 | #LighterBackgroundColor#,#GradientLow# ; 1.0"]
+SetTaskbarDarkMode=[!SetOptionGroup TaskbarGroup Gradient "180 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 0.0 | #DarkerBackgroundColor#,#NoGradientTransparency# ; 1.0"]
+
 [measureGradient]
 Measure=Calc
 DynamicVariables=1
 Formula=#Gradient#
 
-[measureLightMode]
+[measureSystemTheme]
 Measure=Registry
+DynamicVariables=1
 RegHKey=HKEY_CURRENT_USER
 RegKey=Software\Microsoft\Windows\CurrentVersion\Themes\Personalize
 RegValue=AppsUseLightTheme
-IfCondition=(measureLightMode = 0) && (measureGradient = 1)
-IfCondition2=(measureLightMode = 1) && (measureGradient = 0)
-IfCondition3=(measureLightMode = 1) && (measureGradient = 1)
-IfCondition4=(measureLightMode = 0) && (measureGradient = 0)
+IfCondition=(#CURRENTSECTION# = 0) && (measureGradient = 1)
+IfCondition2=(#CURRENTSECTION# = 1) && (measureGradient = 0)
+IfCondition3=(#CURRENTSECTION# = 1) && (measureGradient = 1)
+IfCondition4=(#CURRENTSECTION# = 0) && (measureGradient = 0)
+IfTrueAction=#SetTaskbarDarkModeGradient#
+IfTrueAction2=#SetTaskbarLightMode#
+IfTrueAction3=#SetTaskbarLightModeGradient#
+IfTrueAction4=#SetTaskbarDarkMode#
+IfCondition5=(#CURRENTSECTION# = 0) && (measureGradient = 1) && (#SyncSystemTheme# = 1)
+IfCondition6=(#CURRENTSECTION# = 1) && (measureGradient = 0) && (#SyncSystemTheme# = 1)
+IfCondition7=(#CURRENTSECTION# = 1) && (measureGradient = 1) && (#SyncSystemTheme# = 1)
+IfCondition8=(#CURRENTSECTION# = 0) && (measureGradient = 0) && (#SyncSystemTheme# = 1)
+IfTrueAction5=#SetDarkModeGradient#
+IfTrueAction6=#SetLightMode#
+IfTrueAction7=#SetLightModeGradient#
+IfTrueAction8=#SetDarkMode#
+
+[measureLightMode]
+Measure=Calc
+DynamicVariables=1
+Formula=#LightMode#
+IfCondition=(#CURRENTSECTION# = 0) && (measureGradient = 1) && (#SyncSystemTheme# = 0)
+IfCondition2=(#CURRENTSECTION# = 1) && (measureGradient = 0) && (#SyncSystemTheme# = 0)
+IfCondition3=(#CURRENTSECTION# = 1) && (measureGradient = 1) && (#SyncSystemTheme# = 0)
+IfCondition4=(#CURRENTSECTION# = 0) && (measureGradient = 0) && (#SyncSystemTheme# = 0)
 IfTrueAction=#SetDarkModeGradient#
 IfTrueAction2=#SetLightMode#
 IfTrueAction3=#SetLightModeGradient#

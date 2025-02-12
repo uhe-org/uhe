@@ -18,4 +18,4 @@ Shape=Rectangle 0,0,#SCREENAREAWIDTH#,(#SCREENAREAHEIGHT# - #WORKAREAHEIGHT#),#C
 ;add placeholder option to hide errors
 Gradient=0 | 0,0,0,0 ; 0.0
 DynamicVariables=1
-Group=OpaqueBackgroundGroup
+Group=TaskbarGroup

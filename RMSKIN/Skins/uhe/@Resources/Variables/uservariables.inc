@@ -7,3 +7,5 @@ Icons=1
 LightHighlight=185,158,177
 DarkHighlight=75,50,76
 Prefer24h=0
+LightMode=1
+SyncSystemTheme=1
