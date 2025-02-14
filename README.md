@@ -32,6 +32,14 @@ Some skins rely on external plugins / software. All Rainmeter plugins listed bel
 - Lyrics Display
     - Mouse ([Rainmeter Forums](https://forum.rainmeter.net/viewtopic.php?t=26030)) ([GitHub Repo](https://github.com/NighthawkSLO/Mouse.dll))
 
+## Development
+
+This repo is structured in a way to automate releases, but there is no way to have multiple custom skins folders in Rainmeter. It makes developing in real time not possible by default, and symlinking has to be done. For example in PowerShell as admin:
+
+```powershell
+New-Item -Path "$([Environment]::GetFolderPath("MyDocuments"))\Rainmeter\Skins\uhe" -ItemType SymbolicLink -Value "$([Environment]::GetFolderPath("MyDocuments"))\GitHub\uhe\RMSKIN\Skins\uhe"
+```
+
 ## License
 
 Licensed under the MIT License.
