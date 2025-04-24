@@ -4,8 +4,11 @@ A Rainmeter suite with a simple duotone design.
 
 Supports light/dark mode:
 
-![Desktop-Light](assets/desktop-light.jpg#gh-light-mode-only)
-![Desktop-Dark](assets/desktop-dark.jpg#gh-dark-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/desktop-dark.jpg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/desktop-light.jpg">
+  <img alt="uhe in dark mode" src="assets/desktop-dark.jpg">
+</picture>
 
 *Wallpaper source (Wallpaper Engine): [White Oak (Day/Night)](https://steamcommunity.com/sharedfiles/filedetails/?id=2911866381)*\
 *Layout: "uhe Default Layout"*
