@@ -444,7 +444,9 @@ X=(#Width# / 6)
 W=(#Width# / 3)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "(([measureTargetMonth] + 1) + 11) % 12 + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "(([measureTargetMonth] + 1) + 11) % 12 + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "(([measureTargetMonth] - 1) + 11) % 12 + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollDownAction=#PlayButtonClick#[!SetOption measureTargetMonth Formula "(([measureTargetMonth] - 1) + 11) % 12 + 1"][!UpdateMeasure measureTargetMonth][!UpdateMeter meterMonthButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -471,7 +473,9 @@ X=(#Width# / 6)r
 W=(#Width# / 3)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "(([measureTargetDay] + 1) + [measureLastDay] - 1) % [measureLastDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "(([measureTargetDay] + 1) + [measureLastDay] - 1) % [measureLastDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "(([measureTargetDay] - 1) + [measureLastDay] - 1) % [measureLastDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollDownAction=#PlayButtonClick#[!SetOption measureTargetDay Formula "(([measureTargetDay] - 1) + [measureLastDay] - 1) % [measureLastDay] + 1"][!UpdateMeasure measureTargetDay][!UpdateMeter meterDayDateButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -498,7 +502,9 @@ X=(#Width# / 6)r
 W=(#Width# / 3)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetYear Formula "[measureTargetYear] + 1"][!UpdateMeasure measureTargetYear][!UpdateMeter meterYearButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollUpAction=#PlayButtonClick#[!SetOption measureTargetYear Formula "[measureTargetYear] + 1"][!UpdateMeasure measureTargetYear][!UpdateMeter meterYearButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetYear Formula "[measureTargetYear] - 1"][!UpdateMeasure measureTargetYear][!UpdateMeter meterYearButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollDownAction=#PlayButtonClick#[!SetOption measureTargetYear Formula "[measureTargetYear] - 1"][!UpdateMeasure measureTargetYear][!UpdateMeter meterYearButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -532,7 +538,9 @@ X=(#Width# / 12)r
 W=(#Width# / 6)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "(([measureTargetHour] + 1) % 24 + 24) % 24"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "(([measureTargetHour] + 1) % 24 + 24) % 24"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "(([measureTargetHour] - 1) % 24 + 24) % 24"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollDownAction=#PlayButtonClick#[!SetOption measureTargetHour Formula "(([measureTargetHour] - 1) % 24 + 24) % 24"][!UpdateMeasure measureTargetHour][!UpdateMeter meterHourButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
@@ -584,7 +592,9 @@ X=(#Width# / 12)r
 W=(#Width# / 6)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "(([measureTargetMinute] + 1) % 60 + 60) % 60"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "(([measureTargetMinute] + 1) % 60 + 60) % 60"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 RightMouseUpAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "(([measureTargetMinute] - 1) % 60 + 60) % 60"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
+MouseScrollDownAction=#PlayButtonClick#[!SetOption measureTargetMinute Formula "(([measureTargetMinute] - 1) % 60 + 60) % 60"][!UpdateMeasure measureTargetMinute][!UpdateMeter meterMinuteButton][!UpdateMeasure measureTargetDate][!UpdateMeasure measureTimeTarget][!UpdateMeasure MeasureDisplayTimeTarget][!UpdateMeter meterStyleDisplay][!Redraw]
 Hidden=1
 FontFace=#FontFace#
 
