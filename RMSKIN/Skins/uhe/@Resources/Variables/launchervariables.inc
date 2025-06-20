@@ -1,7 +1,7 @@
 [Rainmeter]
 @Include=mainvariables.inc
-ContextTitle2="Edit launcher variables"
-ContextAction2=["#@#Variables/launchervariables.inc"]
+ContextTitle3="Edit launcher variables"
+ContextAction3=["#@#Variables/launchervariables.inc"]
 
 [Variables]
 FontSize=25

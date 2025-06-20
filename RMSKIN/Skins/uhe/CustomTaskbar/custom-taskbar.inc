@@ -1,7 +1,7 @@
 [Rainmeter]
 @Include=#@#Variables/mainvariables.inc
-ContextTitle2="Edit base custom taskbar"
-ContextAction2=["#CURRENTPATH#../custom-taskbar.inc"]
+ContextTitle3="Edit base custom taskbar"
+ContextAction3=["#CURRENTPATH#../custom-taskbar.inc"]
 
 [measureWinVer]
 Measure=Registry

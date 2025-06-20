@@ -3,8 +3,10 @@
 [Rainmeter]
 AccurateText=1
 DynamicWindowSize=1
-ContextTitle="Edit main variables"
-ContextAction=["#SKINSPATH#\uhe\@Resources\Variables\mainvariables.inc"]
+ContextTitle="Report issues here"
+ContextAction=["https://github.com/uhe-org/uhe/issues"]
+ContextTitle2="Edit main variables"
+ContextAction2=["#SKINSPATH#\uhe\@Resources\Variables\mainvariables.inc"]
 @Include=uservariables.inc
 @Include2=formattingvariables.inc
 Group=AllSkins

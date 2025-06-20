@@ -1,7 +1,7 @@
 [Rainmeter]
 @Include=mainvariables.inc
-ContextTitle2="Edit side icon variables"
-ContextAction2=["#@#Variables/sideiconvariables.inc"]
+ContextTitle3="Edit side icon variables"
+ContextAction3=["#@#Variables/sideiconvariables.inc"]
 Group=IconSkins | AllSkins
 
 [Variables]

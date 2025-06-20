@@ -1,7 +1,7 @@
 [Rainmeter]
 @Include=#@#Variables/mainvariables.inc
-ContextTitle2="Edit base controls"
-ContextAction2=["#CURRENTPATH#controls.inc"]
+ContextTitle3="Edit base controls"
+ContextAction3=["#CURRENTPATH#controls.inc"]
 
 [Variables]
 backwardButton=[\xf048]

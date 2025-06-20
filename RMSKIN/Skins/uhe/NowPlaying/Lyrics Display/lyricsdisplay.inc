@@ -1,7 +1,7 @@
 [Rainmeter]
 @Include=#@#Variables/mainvariables.inc
-ContextTitle2="Edit base lyrics display"
-ContextAction2=["#CURRENTPATH#lyricsdisplay.inc"]
+ContextTitle3="Edit base lyrics display"
+ContextAction3=["#CURRENTPATH#lyricsdisplay.inc"]
 
 [Variables]
 CurrentY=0

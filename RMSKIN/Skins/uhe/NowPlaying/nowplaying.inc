@@ -1,7 +1,7 @@
 [Rainmeter]
 @Include=#@#Variables/mainvariables.inc
-ContextTitle2="Edit base now playing"
-ContextAction2=["#CURRENTPATH#nowplaying.inc"]
+ContextTitle3="Edit base now playing"
+ContextAction3=["#CURRENTPATH#nowplaying.inc"]
 
 [Variables]
 icon=[\xf001]
