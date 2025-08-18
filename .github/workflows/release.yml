@@ -14,7 +14,7 @@ jobs:
     outputs:
       lastTag: ${{ steps.get_last_tag.outputs.lastTag }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Get last tag
@@ -39,7 +39,7 @@ jobs:
       target: ${{ steps.create_rmskin.outputs.target }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
