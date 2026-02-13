@@ -156,7 +156,7 @@ IfCondition2=([measureTargetMonth] = 4) || ([measureTargetMonth] = 7) || ([measu
 IfTrueAction2=[!SetOption #CURRENTSECTION# Formula 30][!UpdateMeasure #CURRENTSECTION#]
 IfCondition3=([measureTargetMonth] = 2) && ([measureTargetYear] % 4 <> 0)
 IfTrueAction3=[!SetOption #CURRENTSECTION# Formula 28][!UpdateMeasure #CURRENTSECTION#]
-IfCondition4=([measureTargetMonth] = 2) && ([measureTargetYear] % 4 = 0)
+IfCondition4=([measureTargetMonth] = 2) && ((([measureTargetYear] % 4 = 0) && ([measureTargetYear] % 100 <> 0)) || ([measureTargetYear] % 400 = 0))
 IfTrueAction4=[!SetOption #CURRENTSECTION# Formula 29][!UpdateMeasure #CURRENTSECTION#]
 DynamicVariables=1
 OnChangeAction=[!SetOption measureTargetDay Formula "Min([measureTargetDay], [measureLastDay])"][!UpdateMeasure measureTargetDay]
