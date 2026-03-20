@@ -12,7 +12,7 @@ ContextAction2=["#SKINSPATH#\uhe\@Resources\Variables\mainvariables.inc"]
 Group=AllSkins
 
 [Variables]
-CurrentVersion=v1.4.3
+CurrentVersion=v1.5.0
 
 FontFace=Roboto Condensed
 DisplayFont=Bebas Neue
