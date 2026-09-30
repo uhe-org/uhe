@@ -18,8 +18,7 @@ FontFace=Roboto Condensed
 DisplayFont=Bebas Neue
 MonospacedFontFace=Ubuntu Mono
 HandwritingFont=Dancing Script
-IconFace=Font Awesome 7 Free Solid
-RegularIconFace=Font Awesome 7 Free
+IconFace=Font Awesome 7 Free
 BrandFace=Font Awesome 7 Brands
 
 GradientHigh=200
