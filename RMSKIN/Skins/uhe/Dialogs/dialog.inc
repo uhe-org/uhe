@@ -67,6 +67,7 @@ W=(#Width# / 2)
 StringAlign=Center
 LeftMouseUpAction=#PlayButtonClick#[!DeactivateConfig]#YesAction#[!Redraw]
 FontFace=#FontFace#
+DynamicVariables=1
 
 [measureNoButtonBackground]
 Meter=Shape
